@@ -2,21 +2,20 @@ require("dotenv").config();
 const express = require("express");
 const router = express.Router();
 const Login = require("../models/login");
+const bodyParser = require("body-parser");
 
 const session = require("express-session");
 const passport = require("passport");
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
+router.use(bodyParser.json());
+// router.use(session({
+//     secret: 'Our secret',
+//     resave: true,
+//     saveUninitialized: true
+// }));
 
-router.use(
-  session({
-    secret: "Our secret",
-    resave: false,
-    saveUninitialized: false,
-  })
-);
-
-router.use(passport.initialize());
-router.use(passport.session());
+// router.use(passport.initialize());
+// router.use(passport.session());
 
 passport.use(Login.createStrategy());
 
@@ -58,7 +57,11 @@ router.get(
   passport.authenticate("google", { failureRedirect: "/auth/google" }),
   function (req, res) {
     // Successful authentication, redirect home.
-    res.redirect("/users");
+    //var sess = req.session;
+    //sess.username = profile.emails[0].value;
+    //res.end('done');
+    console.log(req.user);
+    res.redirect("http://localhost:3000/welcome");
   }
 );
 
@@ -90,10 +93,22 @@ router.post("/login", function (req, res) {
       passport.authenticate("local")(req, res, function () {
         var string = encodeURIComponent("logged in");
 
-        res.redirect("http://localhost:3000/user");
+        res.redirect("login/sess");
       });
     }
   });
+});
+
+router.get("/ses", function (req, res) {
+  var sess = req.session;
+  /*
+   * Here we have assigned the 'session' to 'sess'.
+   * Now we can create any number of session variables we want.
+   * in PHP we do as $_SESSION['var name'].
+   * Here we do like this.
+   */
+  //sess.email; // equivalent to $_SESSION['email'] in PHP.
+  res.json({ session: req.session.user }); // equivalent to $_SESSION['username'] in PHP.
 });
 
 router.get("/logout", function (req, res) {
@@ -101,4 +116,12 @@ router.get("/logout", function (req, res) {
   res.redirect("/");
 });
 
+router.get("/sess", (req, res) => {
+  const sess = req.user.username;
+  res.json(req.session);
+  res.redirect("/student_profile");
+});
+
+// const SESSION = session;
+// module.exports = SESSION
 module.exports = router;

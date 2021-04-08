@@ -1,0 +1,34 @@
+.pb-8-user {
+  padding-bottom: 8rem !important;
+}
+
+.pt-5-user {
+  padding-top: 3rem !important;
+}
+.pt-lg-8-user {
+  padding-top: 8rem !important;
+}
+.d-flex-user {
+  display: flex !important;
+}
+.mask-user {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: all 0.15s ease;
+}
+.header-user {
+  margin-top: -6rem !important;
+  padding-left: 200px !important;
+  padding-right: 200px !important;
+}
+.display-2-user {
+  font-size: 2.75rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+.align-items-center-user {
+  align-items: center !important;
+}

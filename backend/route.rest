@@ -4,7 +4,7 @@ Content-Type: application/json
 
 {   
     
-    "username": "saa23456",
+    "username": "abc",
     "password": "123"
 }
 
@@ -14,11 +14,59 @@ POST http://localhost:9000/login/register
 Content-Type: application/json
 
 {   
-    "username": "saa2346",
+    "username": "abc",
     "password": "123"
 }
 ###
 GET http://localhost:9000/login/logout
 
 
+###
+GET http://localhost:9000/login/sess
 
+###
+GET http://localhost:9000/student_profile
+
+###
+PATCH http://localhost:9000/student_profile/update/606c2890b040e522180a8b21
+Content-Type: application/json
+
+{
+    "name": "sayak",
+    "phone": "900000000",
+    "stream": "CSE",
+    "section": "A",
+    "year": "3rd",
+    "street": "MG road",
+    "city": "Kolkata",
+    "pin": "700111"
+
+    //: "Web dev"
+}
+
+###
+GET http://localhost:9000/student_profile/trial
+
+###
+GET http://localhost:9000/leave
+
+###
+POST http://localhost:9000/leave
+Content-Type: application/json
+
+{   
+    "from":"12/34",
+    "to":"13/34",
+    "cause":"fever"
+}
+
+###
+POST http://localhost:9000/attendence
+Content-Type: application/json
+
+{
+    "subject":"english"   
+}
+
+###
+GET  http://localhost:9000/attendence/60661a311dfdb90498a81e53

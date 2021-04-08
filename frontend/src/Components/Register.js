@@ -1,4 +1,5 @@
 import React from "react";
+import { Redirect } from "react-router-dom";
 import axios from "axios";
 
 import {
@@ -23,6 +24,7 @@ class Register extends React.Component {
     this.state = {
       username: "",
       password: "",
+      redirectTo: null,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -44,7 +46,7 @@ class Register extends React.Component {
           console.log("successful signup");
           this.setState({
             //redirect to login page
-            redirectTo: "/user",
+            redirectTo: "http://localhost:3000/login",
           });
         } else {
           console.log("username already taken");
@@ -57,93 +59,101 @@ class Register extends React.Component {
   }
 
   render() {
-    return (
-      <>
-        <main ref="main">
-          <section className="section section-shaped section-lg">
-            <div className="shape shape-style-1 bg-gradient-default">
-              <span />
-              <span />
-              <span />
-              <span />
-              <span />
-              <span />
-              <span />
-              <span />
-            </div>
-            <Container className="pt-lg-7">
-              <Row className="justify-content-center">
-                <Col lg="5">
-                  <Card className="bg-secondary shadow border-0">
-                    <CardHeader className="bg-white pb-5">
-                      <div className="text-muted text-center mb-3">
-                        <small>Sign up with</small>
-                      </div>
-                    </CardHeader>
-                    <CardBody className="px-lg-5 py-lg-5">
-                      <div className="text-center text-muted mb-4">
-                        <small>Or sign up with credentials</small>
-                      </div>
-                      <Form role="form">
-                        <FormGroup>
-                          <InputGroup className="input-group-alternative mb-3">
-                            <InputGroupAddon addonType="prepend">
-                              <InputGroupText>
-                                <i className="ni ni-email-83" />
-                              </InputGroupText>
-                            </InputGroupAddon>
-                            <Input
-                              placeholder="Email"
-                              type="email"
-                              value={this.state.username}
-                              onChange={(event) =>
-                                this.setState({ username: event.target.value })
-                              }
-                            />
-                          </InputGroup>
-                        </FormGroup>
-                        <FormGroup>
-                          <InputGroup className="input-group-alternative">
-                            <InputGroupAddon addonType="prepend">
-                              <InputGroupText>
-                                <i className="ni ni-lock-circle-open" />
-                              </InputGroupText>
-                            </InputGroupAddon>
-                            <Input
-                              placeholder="Password"
-                              type="password"
-                              autoComplete="off"
-                              value={this.state.password}
-                              onChange={(event) =>
-                                this.setState({ password: event.target.value })
-                              }
-                            />
-                          </InputGroup>
-                        </FormGroup>
-
-                        <Row className="my-4">
-                          <Col xs="12"></Col>
-                        </Row>
-                        <div className="text-center">
-                          <Button
-                            className="mt-4"
-                            color="primary"
-                            type="button"
-                            onClick={this.handleSubmit}
-                          >
-                            Create account
-                          </Button>
+    if (this.state.redirectTo) {
+      return <Redirect to={{ pathname: this.state.redirectTo }} />;
+    } else {
+      return (
+        <>
+          <main ref="main">
+            <section className="section section-shaped section-lg">
+              <div className="shape shape-style-1 bg-gradient-default">
+                <span />
+                <span />
+                <span />
+                <span />
+                <span />
+                <span />
+                <span />
+                <span />
+              </div>
+              <Container className="pt-lg-7">
+                <Row className="justify-content-center">
+                  <Col lg="5">
+                    <Card className="bg-secondary shadow border-0">
+                      <CardHeader className="bg-white pb-5">
+                        <div className="text-muted text-center mb-3">
+                          <small>Sign up with</small>
                         </div>
-                      </Form>
-                    </CardBody>
-                  </Card>
-                </Col>
-              </Row>
-            </Container>
-          </section>
-        </main>
-      </>
-    );
+                      </CardHeader>
+                      <CardBody className="px-lg-5 py-lg-5">
+                        <div className="text-center text-muted mb-4">
+                          <small>Or sign up with credentials</small>
+                        </div>
+                        <Form role="form">
+                          <FormGroup>
+                            <InputGroup className="input-group-alternative mb-3">
+                              <InputGroupAddon addonType="prepend">
+                                <InputGroupText>
+                                  <i className="ni ni-email-83" />
+                                </InputGroupText>
+                              </InputGroupAddon>
+                              <Input
+                                placeholder="Email"
+                                type="email"
+                                value={this.state.username}
+                                onChange={(event) =>
+                                  this.setState({
+                                    username: event.target.value,
+                                  })
+                                }
+                              />
+                            </InputGroup>
+                          </FormGroup>
+                          <FormGroup>
+                            <InputGroup className="input-group-alternative">
+                              <InputGroupAddon addonType="prepend">
+                                <InputGroupText>
+                                  <i className="ni ni-lock-circle-open" />
+                                </InputGroupText>
+                              </InputGroupAddon>
+                              <Input
+                                placeholder="Password"
+                                type="password"
+                                autoComplete="off"
+                                value={this.state.password}
+                                onChange={(event) =>
+                                  this.setState({
+                                    password: event.target.value,
+                                  })
+                                }
+                              />
+                            </InputGroup>
+                          </FormGroup>
+
+                          <Row className="my-4">
+                            <Col xs="12"></Col>
+                          </Row>
+                          <div className="text-center">
+                            <Button
+                              className="mt-4"
+                              color="primary"
+                              type="button"
+                              onClick={this.handleSubmit}
+                            >
+                              Create account
+                            </Button>
+                          </div>
+                        </Form>
+                      </CardBody>
+                    </Card>
+                  </Col>
+                </Row>
+              </Container>
+            </section>
+          </main>
+        </>
+      );
+    }
   }
 }
 
