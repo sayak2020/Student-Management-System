@@ -58,7 +58,10 @@ class Profile extends Component {
       pin: this.state.pin,
     };
 
-    axios.post("http://localhost:9000/student_profile/update/sayak", post);
+    axios.post(
+      `http://localhost:9000/student_profile/update/${req.user.username}`,
+      post
+    );
   };
   render() {
     return (

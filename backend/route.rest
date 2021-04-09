@@ -18,17 +18,17 @@ Content-Type: application/json
     "password": "123"
 }
 ###
-GET http://localhost:9000/login/logout
+GET http://localhost:3000/login/logout
 
 
 ###
-GET http://localhost:9000/login/sess
+GET http://localhost:3000/login/sess
 
 ###
-GET http://localhost:9000/student_profile
+GET http://localhost:3000/student_profile
 
 ###
-PATCH http://localhost:9000/student_profile/update/606c2890b040e522180a8b21
+PATCH http://localhost:3000/student_profile/update/sayak
 Content-Type: application/json
 
 {
@@ -45,13 +45,13 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:9000/student_profile/trial
+GET http://localhost:3000/student_profile/trial
 
 ###
-GET http://localhost:9000/leave
+GET http://localhost:3000/leave
 
 ###
-POST http://localhost:9000/leave
+POST http://localhost:3000/leave
 Content-Type: application/json
 
 {   
@@ -61,7 +61,7 @@ Content-Type: application/json
 }
 
 ###
-POST http://localhost:9000/attendence
+POST http://localhost:3000/attendence
 Content-Type: application/json
 
 {
@@ -69,4 +69,4 @@ Content-Type: application/json
 }
 
 ###
-GET  http://localhost:9000/attendence/60661a311dfdb90498a81e53
+GET  http://localhost:3000/attendence/60661a311dfdb90498a81e53

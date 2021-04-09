@@ -61,7 +61,7 @@ router.get(
     //sess.username = profile.emails[0].value;
     //res.end('done');
     console.log(req.user);
-    res.redirect("http://localhost:3000/welcome");
+    res.redirect("https://localhost:3000/welcome");
   }
 );
 
@@ -74,7 +74,7 @@ router.post("/register", function (req, res) {
         res.redirect("/login");
       } else {
         passport.authenticate("local")(req, res, function () {
-          res.redirect("/user");
+          res.send("1");
         });
       }
     }
@@ -87,13 +87,13 @@ router.post("/login", function (req, res) {
     password: req.body.password,
   });
   req.login(user, function (err) {
-    if (err == "Unauthorized") {
+    if (err) {
       res.redirect("/login");
     } else {
       passport.authenticate("local")(req, res, function () {
         var string = encodeURIComponent("logged in");
 
-        res.redirect("login/sess");
+        res.status(200).send("2");
       });
     }
   });

@@ -1,5 +1,6 @@
 require("dotenv").config();
 const cors = require("cors");
+
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
@@ -32,7 +33,6 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use(express.json());
-
 app.use(cors());
 
 const userRouter = require("./routes/login");
@@ -48,5 +48,5 @@ const attendence = require("./routes/attendence");
 app.use("/attendence", attendence);
 
 app.listen(9000, () => {
-  console.log("Server started at 9000");
+  console.log("Server startded at 3000");
 });

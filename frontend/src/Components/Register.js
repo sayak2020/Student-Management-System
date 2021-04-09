@@ -46,7 +46,7 @@ class Register extends React.Component {
           console.log("successful signup");
           this.setState({
             //redirect to login page
-            redirectTo: "http://localhost:3000/login",
+            redirectTo: "/login",
           });
         } else {
           console.log("username already taken");
