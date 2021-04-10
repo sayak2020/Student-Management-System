@@ -14,36 +14,67 @@ const student_profile = require('../models/student_profile');
 //     saveUninitialized: true
 // }));
 
-router.get('/',  async (req,res) =>{ 
-    let student = await student_profile.findOne({'email':req.user.username});
-    if(student==null)
-    {
-     const student = new student_profile({
-            email: req.user.username,
-            userid: req.user.id,
+// router.get('/',  async (req,res) =>{ 
+//     let student = await student_profile.findOne({'email': req.user.username});
+//     if(student==null)
+//     {
+//      const student = new student_profile({
+//             email: req.user.username,
+//             userid: req.user.id,
             
-        });
-        try{
-            const newstudent = await student.save();
-            res.status(201).json(newstudent);
+//         });
+//         try{
+//             const newstudent = await student.save();
+//             res.status(201).json(newstudent);
     
-        } catch (err) {
-            res.status(400).json({message: err.message});
+//         } catch (err) {
+//             res.status(400).json({message: err.message});
                 
-        }
+//         }
     
+//     }
+
+//     console.log('student_profile')
+// })
+router.get('/', async (req, res) =>{
+    
+    const student = new student_profile({
+        //email: req.user.username,
+        userid: req.user.id,
+        email: req.user.username,
+        
+    });
+    try{
+        const newstudent = await student.save();
+       // res.status(201).json(newstudent);
+       res.student = newstudent;
+       next();
+
+    } catch (err) {
+        res.status(400).json({message: err.message});
+            
     }
-
-    console.log('student_profile')
-})
-router.get('/trial', (req, res) =>{
-    res.redirect(`/${req.user.id}`);
-})
-
-router.patch('/update/:id', getStudent , async (req, res) => {
     
-    // res.student.userid= req.user.id;
-    // res.student.email= req.user.username;
+})
+
+
+router.get('/:id', async (req, res) =>{
+    try{
+        student = await student_profile.findOne({'userid':req.params.id});
+    res.json({student});
+    }
+    catch(err){
+        res.json({message: err.message});
+    }
+})
+
+router.patch('/update/:id/:email', getStudent , async (req, res) => {
+    
+    //res.student.userid= req.user.id;
+    // const email= req.user.username;
+    // res.student.email = email;
+    // console.log(email);
+    
 
     if(req.body.name != null) {
         res.student.name = req.body.name;
@@ -75,7 +106,7 @@ router.patch('/update/:id', getStudent , async (req, res) => {
         res.json(updatedStudent);
 
     } catch(err) {
-        res.status(400).json({message: err.message});
+        res.json({message: err.message});
     }
 
 });
@@ -83,10 +114,29 @@ router.patch('/update/:id', getStudent , async (req, res) => {
 async function getStudent (req, res, next ){ // getsubscriber works as a middle wear
     let student;
     try{
-        student = await student_profile.findOne({'email':req.params.id});
+        student = await student_profile.findOne({'userid':req.params.id});
         //console.log(req.prams.id);
         if (student == null) {
-            return res.status(404).json({message: 'Cannot find student'});
+            //return res.status(404).json({message: 'Cannot find student'});
+            const student = new student_profile({
+                //email: req.user.username,
+                userid: req.params.id,
+                email: req.params.email,
+                
+            });
+            try{
+                const newstudent = await student.save();
+               // res.status(201).json(newstudent);
+               res.student = newstudent;
+               next();
+        
+            } catch (err) {
+                res.status(400).json({message: err.message});
+                    
+            }
+        }
+        else{
+            res.student = student;
         }
     } catch(err) {
         res.status(500).json({message: err.message});

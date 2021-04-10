@@ -93,7 +93,7 @@ router.post("/login", function (req, res) {
       passport.authenticate("local")(req, res, function () {
         var string = encodeURIComponent("logged in");
 
-        res.status(200).send("2");
+        res.status(200).json({userid:req.user.id, username:req.user.username});
       });
     }
   });
@@ -113,6 +113,8 @@ router.get("/ses", function (req, res) {
 
 router.get("/logout", function (req, res) {
   req.logout();
+  res.clearCookie("userid");
+  res.clearCookie("username");
   res.redirect("/");
 });
 

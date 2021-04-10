@@ -48,5 +48,5 @@ const attendence = require("./routes/attendence");
 app.use("/attendence", attendence);
 
 app.listen(9000, () => {
-  console.log("Server startded at 3000");
+  console.log("Server startded at 9000");
 });

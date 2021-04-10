@@ -3,12 +3,12 @@ const { session } = require('passport');
 const router = express.Router();
 const Attendence = require('../models/attendence');
 
-router.post('/', async (req, res) => {
+router.post('/:id/:email', async (req, res) => {
     
     const attendence  = new Attendence({
         
-        email: req.user.username,
-        userid: req.user.id,
+        email: req.params.email,
+        userid: req.params.id,
         //date: req.body.date,
         subject: req.body.subject
        // time: req.body.time

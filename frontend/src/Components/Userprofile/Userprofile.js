@@ -19,6 +19,8 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import "./Userprofile.css";
+import Cookies from 'universal-cookie';
+
 
 // reactstrap components
 import {
@@ -35,12 +37,14 @@ import {
   Col,
 } from "reactstrap";
 
+const cookies = new Cookies();
+
 class Userprofile extends Component {
   // state = {
   //   this: [],
   //  };
   componentDidMount() {
-    axios.get("http://localhost:9000/student_profile").then((response) => {
+    axios.get(`http://localhost:9000/student_profile/${cookies.get('userid')}/${cookies.get('username')}`).then((response) => {
       //this.setState({ this: response.data });
       console.log(response.data);
     });

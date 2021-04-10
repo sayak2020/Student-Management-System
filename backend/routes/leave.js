@@ -3,9 +3,9 @@ const { session } = require('passport');
 const router = express.Router();
 const leave = require('../models/leave');
 
-router.get('/', async (req, res) => {
+router.get('/:id', async (req, res) => {
     try{
-        const leaveApplications = await leave.find();
+        const leaveApplications = await leave.find({userid: req.params.id});
         res.json(leaveApplications);
 
     } catch (err) {
@@ -14,12 +14,12 @@ router.get('/', async (req, res) => {
 
 });
 
-router.post('/', async (req, res) => {
+router.post('/:id/:email', async (req, res) => {
     
     const Leave  = new leave({
         
-        email: req.user.username,
-        userid: req.user.id,
+        email: req.params.email,
+        userid: req.params.id,
         from: req.body.from,
         to: req.body.to,
         cause: req.body.cause
