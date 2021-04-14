@@ -40,7 +40,11 @@ passport.use(
     },
     function (accessToken, refreshToken, profile, cb) {
       Login.findOrCreate(
-        { googleId: profile.id, username: profile.emails[0].value },
+        {
+          googleId: profile.id,
+          username: profile.emails[0].value,
+          name: profile.name.givenName + " " + profile.name.familyName,
+        },
         function (err, user) {
           return cb(err, user);
         }
@@ -61,14 +65,16 @@ router.get(
     //sess.username = profile.emails[0].value;
     //res.end('done');
     console.log(req.user);
-    res.redirect("https://localhost:3000/welcome");
+    res.json({ userid: req.user.id, username: req.user.username });
+    //res.redirect("http://localhost:3000/welcome");
   }
 );
 
 router.post("/register", function (req, res) {
   Login.register(
-    { username: req.body.username },
+    { username: req.body.username, name: req.body.name },
     req.body.password,
+
     function (err, user) {
       if (err) {
         res.redirect("/login");
@@ -93,7 +99,9 @@ router.post("/login", function (req, res) {
       passport.authenticate("local")(req, res, function () {
         var string = encodeURIComponent("logged in");
 
-        res.status(200).send("2");
+        res
+          .status(200)
+          .json({ userid: req.user.id, username: req.user.username });
       });
     }
   });
@@ -113,7 +121,9 @@ router.get("/ses", function (req, res) {
 
 router.get("/logout", function (req, res) {
   req.logout();
-  res.redirect("/");
+  res.clearCookie("userid");
+  res.clearCookie("username");
+  res.redirect("http://localhost:3000/");
 });
 
 router.get("/sess", (req, res) => {

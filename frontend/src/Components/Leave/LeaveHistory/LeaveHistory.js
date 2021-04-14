@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useMemo } from "react";
 import Cookies from "universal-cookie";
 import axios from "axios";
-import Table from "./Table";
 import { Card } from "reactstrap";
-import "./CheckAttendance.css";
+import LeaveTable from "./LeaveTable";
+import "./LeaveHistory.css";
 
-function CheckAttendance() {
+function LeaveHistory() {
   const [data, setData] = useState([]);
 
   // Using useEffect to call the API once mounted and set the data
@@ -13,36 +13,40 @@ function CheckAttendance() {
     (async () => {
       const cookies = new Cookies();
       const result = await axios(
-        `http://localhost:9000/attendence/${cookies.get("userid")}`
+        `http://localhost:9000/leave/${cookies.get("userid")}`
       );
-      setData(result.data.attendance);
+      setData(result.data.leaveApplications);
       console.log(result.data);
     })();
   }, []);
 
   const columns = useMemo(() => [
     {
-      Header: "Date",
-      accessor: "date",
+      Header: "From",
+      accessor: "from",
     },
     {
-      Header: "Time",
-      accessor: "time",
+      Header: "To",
+      accessor: "to",
     },
 
     {
-      Header: "Subject",
-      accessor: "subject",
+      Header: "Cause",
+      accessor: "cause",
+    },
+    {
+      Header: "Status",
+      accessor: "status",
     },
   ]);
 
   return (
     <div>
-      <Card className="card-profile shadow tableattend">
-        <Table data={data} columns={columns} />
+      <Card className="card-profile shadow tableleave">
+        <LeaveTable data={data} columns={columns} />
       </Card>
     </div>
   );
 }
 
-export default CheckAttendance;
+export default LeaveHistory;

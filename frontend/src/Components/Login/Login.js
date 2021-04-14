@@ -18,6 +18,7 @@
 import React from "react";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
+import Cookies from "universal-cookie";
 
 // reactstrap components
 import {
@@ -45,13 +46,13 @@ class Login extends React.Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
-  googleLogin = () => {
-    window.open("http://localhost:9000/login/auth/google", "_self");
-  };
+  googleLogin = () => window.open("", "_self");
 
   handleSubmit(event) {
     event.preventDefault();
     console.log("handleSubmit");
+
+    const cookies = new Cookies();
 
     axios
       .post("http://localhost:9000/login/login", {
@@ -61,7 +62,12 @@ class Login extends React.Component {
       .then((response) => {
         console.log("login response: ");
         console.log(response);
-        console.log(response.status);
+        console.log(response.data);
+        cookies.set("userid", response.data.userid, { path: "/" });
+        cookies.set("username", response.data.username, { path: "/" });
+        console.log(cookies.get("userid"));
+        console.log(cookies.get("username"));
+
         if (response.status === 200) {
           // update App.js state
           // this.props.updateUser({
@@ -95,7 +101,7 @@ class Login extends React.Component {
                   <Button
                     className="btn-neutral btn-icon"
                     color="default"
-                    href="#pablo"
+                    href="http://localhost:9000/login/auth/google"
                     onClick={this.googleLogin}
                   >
                     <span className="btn-inner--icon">

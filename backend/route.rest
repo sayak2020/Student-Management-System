@@ -4,7 +4,7 @@ Content-Type: application/json
 
 {   
     
-    "username": "abc",
+    "username": "souvik",
     "password": "123"
 }
 
@@ -14,7 +14,7 @@ POST http://localhost:9000/login/register
 Content-Type: application/json
 
 {   
-    "username": "abc",
+    "username": "souvik",
     "password": "123"
 }
 ###
@@ -25,21 +25,21 @@ GET http://localhost:3000/login/logout
 GET http://localhost:3000/login/sess
 
 ###
-GET http://localhost:3000/student_profile
+GET http://localhost:9000/student_profile/60735c9a05c33006340f1d98
 
 ###
-PATCH http://localhost:3000/student_profile/update/sayak
+PATCH http://localhost:9000/student_profile/update/6071d08b88162110b40340e9/souvik
 Content-Type: application/json
 
 {
-    "name": "sayak",
-    "phone": "900000000",
-    "stream": "CSE",
-    "section": "A",
-    "year": "3rd",
-    "street": "MG road",
-    "city": "Kolkata",
-    "pin": "700111"
+    //"name": "dale",
+    //"phone": "1234567",
+    "stream": "ECE"
+    //"section": "A",
+    //"year": "3rd",
+    //"street": "MG road",
+    //"city": "Kolkata",
+    //"pin": "700111"
 
     //: "Web dev"
 }
@@ -48,20 +48,20 @@ Content-Type: application/json
 GET http://localhost:3000/student_profile/trial
 
 ###
-GET http://localhost:3000/leave
+GET http://localhost:9000/leave/6071d0d388162110b40340eb
 
 ###
-POST http://localhost:3000/leave
+POST http://localhost:9000/leave/6071d0d388162110b40340eb/souvik
 Content-Type: application/json
 
 {   
-    "from":"12/34",
+    "from":"dnvldnvlds",
     "to":"13/34",
     "cause":"fever"
 }
 
 ###
-POST http://localhost:3000/attendence
+POST http://localhost:9000/attendence/6071d0d388162110b40340eb/souvik
 Content-Type: application/json
 
 {
@@ -69,4 +69,4 @@ Content-Type: application/json
 }
 
 ###
-GET  http://localhost:3000/attendence/60661a311dfdb90498a81e53
+GET  http://localhost:9000/attendence/6071d0d388162110b40340eb

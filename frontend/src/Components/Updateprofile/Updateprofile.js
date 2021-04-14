@@ -18,6 +18,8 @@
 import React, { Component } from "react";
 import axios from "axios";
 import "./UpdateProfile.css";
+import Login from "../Login/Login";
+import Cookies from 'universal-cookie';
 // reactstrap components
 import {
   Button,
@@ -47,7 +49,7 @@ class Profile extends Component {
   };
 
   postDataHandler = () => {
-    const post = {
+    const patch = {
       name: this.state.name,
       phone: this.state.phone,
       stream: this.state.stream,
@@ -58,9 +60,12 @@ class Profile extends Component {
       pin: this.state.pin,
     };
 
-    axios.post(
-      `http://localhost:9000/student_profile/update/${req.user.username}`,
-      post
+
+  const cookies = new Cookies();
+
+    axios.patch(
+      `http://localhost:9000/student_profile/update/${cookies.get('userid')}/${cookies.get('username')}`,
+      patch
     );
   };
   render() {
@@ -205,6 +210,7 @@ class Profile extends Component {
                             className="form-control-alternative"
                             id="input-city"
                             type="text"
+                            //default= null
                             value={this.state.city}
                             onChange={(event) =>
                               this.setState({ city: event.target.value })
