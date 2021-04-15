@@ -18,11 +18,7 @@
 import React from "react";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
-<<<<<<< HEAD
 import Cookies from "universal-cookie";
-=======
-import Cookies from 'universal-cookie';
->>>>>>> 9d862c74c6b1b97d50469d23704f0c0838970a64
 
 // reactstrap components
 import {
@@ -55,12 +51,6 @@ class Login extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     console.log("handleSubmit");
-    
-    
-    
-const cookies = new Cookies();
-    
-    
 
     const cookies = new Cookies();
 
@@ -73,17 +63,10 @@ const cookies = new Cookies();
         console.log("login response: ");
         console.log(response);
         console.log(response.data);
-<<<<<<< HEAD
         cookies.set("userid", response.data.userid, { path: "/" });
         cookies.set("username", response.data.username, { path: "/" });
         console.log(cookies.get("userid"));
         console.log(cookies.get("username"));
-=======
-        cookies.set('userid', response.data.userid, { path: '/' });
-        cookies.set('username', response.data.username, { path: '/' });
-        console.log(cookies.get('userid'));
-        console.log(cookies.get('username'));
->>>>>>> 9d862c74c6b1b97d50469d23704f0c0838970a64
 
         if (response.status === 200) {
           // update App.js state

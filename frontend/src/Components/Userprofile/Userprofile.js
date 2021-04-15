@@ -19,12 +19,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import "./Userprofile.css";
-<<<<<<< HEAD
 import Cookies from "universal-cookie";
-=======
-import Cookies from 'universal-cookie';
-
->>>>>>> 9d862c74c6b1b97d50469d23704f0c0838970a64
 
 // reactstrap components
 import {
@@ -52,7 +47,6 @@ class Userprofile extends Component {
   };
 
   componentDidMount() {
-<<<<<<< HEAD
     const cookies = new Cookies();
 
     axios
@@ -66,12 +60,6 @@ class Userprofile extends Component {
         this.setState({ useraddress: response.data.student.address });
         this.setState({ userclass: response.data.student.class });
       });
-=======
-    axios.get(`http://localhost:9000/student_profile/${cookies.get('userid')}/${cookies.get('username')}`).then((response) => {
-      //this.setState({ this: response.data });
-      console.log(response.data);
-    });
->>>>>>> 9d862c74c6b1b97d50469d23704f0c0838970a64
   }
 
   render() {
