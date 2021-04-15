@@ -99,9 +99,13 @@ router.post("/login", function (req, res) {
       passport.authenticate("local")(req, res, function () {
         var string = encodeURIComponent("logged in");
 
+<<<<<<< HEAD
         res
           .status(200)
           .json({ userid: req.user.id, username: req.user.username });
+=======
+        res.status(200).json({userid:req.user.id, username:req.user.username});
+>>>>>>> 9d862c74c6b1b97d50469d23704f0c0838970a64
       });
     }
   });
@@ -123,7 +127,11 @@ router.get("/logout", function (req, res) {
   req.logout();
   res.clearCookie("userid");
   res.clearCookie("username");
+<<<<<<< HEAD
   res.redirect("http://localhost:3000/");
+=======
+  res.redirect("/");
+>>>>>>> 9d862c74c6b1b97d50469d23704f0c0838970a64
 });
 
 router.get("/sess", (req, res) => {

@@ -1,7 +1,31 @@
 const express = require("express");
 const { session } = require("passport");
 const router = express.Router();
+<<<<<<< HEAD
 const Attendence = require("../models/attendence");
+=======
+const Attendence = require('../models/attendence');
+
+router.post('/:id/:email', async (req, res) => {
+    
+    const attendence  = new Attendence({
+        
+        email: req.params.email,
+        userid: req.params.id,
+        //date: req.body.date,
+        subject: req.body.subject
+       // time: req.body.time
+    })
+    try{
+        const newattendence = await attendence.save();
+        res.status(201).json(newattendence);
+
+    } catch (err) {
+        res.status(400).json({message: err.message});
+            
+    }
+
+>>>>>>> 9d862c74c6b1b97d50469d23704f0c0838970a64
 
 router.post("/:id/:email", async (req, res) => {
   const attendence = new Attendence({
