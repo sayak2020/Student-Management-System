@@ -25,21 +25,21 @@ GET http://localhost:3000/login/logout
 GET http://localhost:3000/login/sess
 
 ###
-GET http://localhost:9000/student_profile
+GET http://localhost:9000/student_profile/60735c9a05c33006340f1d98
 
 ###
-PATCH http://localhost:9000/student_profile/update/6071d08b88162110b40340e9/souvik
+PATCH http://localhost:9000/student_profile/update/607bcde443b7683b844dcad5/b@a.com
 Content-Type: application/json
 
 {
-    //"name": "dale",
-    //"phone": "1234567",
-    "stream": "ECE"
-    //"section": "A",
-    //"year": "3rd",
-    //"street": "MG road",
-    //"city": "Kolkata",
-    //"pin": "700111"
+    "name": "yoyo"
+    # "phone": "1234567",
+    # "stream": "ECE",
+    # "section": "A",
+    # "year": "3rd",
+    # "street": "MG road",
+    # "city": "Kolkata",
+    # "pin": "700111"
 
     //: "Web dev"
 }

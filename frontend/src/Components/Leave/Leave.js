@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import "./Leave.css";
+import Cookies from "universal-cookie";
 import {
   Button,
   Card,
@@ -28,7 +29,14 @@ class Leave extends Component {
       cause: this.state.cause,
     };
 
-    axios.post("http://localhost:9000/leave", post);
+    const cookies = new Cookies();
+
+    axios.post(
+      `http://localhost:9000/leave/${cookies.get("userid")}/${cookies.get(
+        "username"
+      )}`,
+      post
+    );
   };
   render() {
     return (
@@ -93,6 +101,16 @@ class Leave extends Component {
             >
               Apply
             </Button>
+            <div>
+              <Button
+                className="float-center"
+                color="default"
+                size="sm"
+                href="/leavehistory"
+              >
+                Leave History
+              </Button>
+            </div>
           </CardBody>
         </Card>
       </div>

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import styles from "./Attendance.css";
+import Cookies from "universal-cookie";
 
 import {
   Button,
@@ -25,7 +26,14 @@ class Attendance extends Component {
       subject: this.state.subject,
     };
 
-    axios.post("http://localhost:9000/attendence", post);
+    const cookies = new Cookies();
+
+    axios.post(
+      `http://localhost:9000/attendence/${cookies.get("userid")}/${cookies.get(
+        "username"
+      )}`,
+      post
+    );
   };
 
   render() {
@@ -67,7 +75,7 @@ class Attendance extends Component {
                 className="float-center"
                 color="default"
                 size="sm"
-                href="/checkAttendance"
+                href="/checkattendance"
               >
                 Check Your Attendance
               </Button>

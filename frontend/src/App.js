@@ -9,6 +9,7 @@ import UpdateProfile from "./Components/Updateprofile/Updateprofile";
 import Attendance from "./Components/Attendance/Attendance";
 import CheckAttendance from "./Components/CheckAttendance/CheckAttendance";
 import Leave from "./Components/Leave/Leave";
+import LeaveHistory from "./Components/Leave/LeaveHistory/LeaveHistory";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
@@ -43,10 +44,20 @@ class App extends Component {
 
               <Attendance />
             </Route>
+            <Route path="/checkattendance">
+              <Navigation />
+
+              <CheckAttendance />
+            </Route>
             <Route path="/leave">
               <Navigation />
 
               <Leave />
+            </Route>
+            <Route path="/leavehistory">
+              <Navigation />
+
+              <LeaveHistory />
             </Route>
             <Route path="/checkAttendance">
               <Navigation />

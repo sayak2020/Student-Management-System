@@ -22,6 +22,7 @@ class Register extends React.Component {
   constructor() {
     super();
     this.state = {
+      name: "",
       username: "",
       password: "",
       redirectTo: null,
@@ -37,6 +38,7 @@ class Register extends React.Component {
     //request to server to add a new username/password
     axios
       .post("http://localhost:9000/login/register", {
+        name: this.state.name,
         username: this.state.username,
         password: this.state.password,
       })
@@ -90,6 +92,25 @@ class Register extends React.Component {
                           <small>Or sign up with credentials</small>
                         </div>
                         <Form role="form">
+                          <FormGroup>
+                            <InputGroup className="input-group-alternative mb-3">
+                              <InputGroupAddon addonType="prepend">
+                                <InputGroupText>
+                                  <i className="ni ni-email-83" />
+                                </InputGroupText>
+                              </InputGroupAddon>
+                              <Input
+                                placeholder="Name"
+                                type="name"
+                                value={this.state.name}
+                                onChange={(event) =>
+                                  this.setState({
+                                    name: event.target.value,
+                                  })
+                                }
+                              />
+                            </InputGroup>
+                          </FormGroup>
                           <FormGroup>
                             <InputGroup className="input-group-alternative mb-3">
                               <InputGroupAddon addonType="prepend">
