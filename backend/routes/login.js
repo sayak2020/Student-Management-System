@@ -65,8 +65,10 @@ router.get(
     //sess.username = profile.emails[0].value;
     //res.end('done');
     console.log(req.user);
-    res.json({ userid: req.user.id, username: req.user.username });
-    //res.redirect("http://localhost:3000/welcome");
+    res.cookie("userid", req.user.id);
+    res.cookie("username", req.user.username);
+    // res.json({ userid: req.user.id, username: req.user.username });
+    res.redirect("http://localhost:3000/welcome");
   }
 );
 
@@ -92,6 +94,7 @@ router.post("/login", function (req, res) {
     username: req.body.username,
     password: req.body.password,
   });
+
   req.login(user, function (err) {
     if (err) {
       res.redirect("/login");

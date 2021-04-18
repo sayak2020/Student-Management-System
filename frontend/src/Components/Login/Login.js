@@ -19,6 +19,7 @@ import React from "react";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
 import Cookies from "universal-cookie";
+import GoogleLogin from "./GoogleLogin";
 
 // reactstrap components
 import {
@@ -46,7 +47,6 @@ class Login extends React.Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
-  googleLogin = () => window.open("", "_self");
 
   handleSubmit(event) {
     event.preventDefault();
@@ -97,24 +97,7 @@ class Login extends React.Component {
                 <div className="text-muted text-center mt-2 mb-3">
                   <small>Sign in with</small>
                 </div>
-                <div className="btn-wrapper text-center">
-                  <Button
-                    className="btn-neutral btn-icon"
-                    color="default"
-                    href="http://localhost:9000/login/auth/google"
-                    onClick={this.googleLogin}
-                  >
-                    <span className="btn-inner--icon">
-                      <img
-                        alt="..."
-                        src={
-                          require("../../img/icons/common/google.svg").default
-                        }
-                      />
-                    </span>
-                    <span className="btn-inner--text">Google</span>
-                  </Button>
-                </div>
+                <GoogleLogin />
               </CardHeader>
               <CardBody className="px-lg-5 py-lg-5">
                 <div className="text-center text-muted mb-4">

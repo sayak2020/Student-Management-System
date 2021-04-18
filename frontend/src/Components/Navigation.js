@@ -11,7 +11,7 @@ function Navigation() {
     <div>
       <Navbar bg="light" expand="lg">
         <Container>
-          <Navbar.Brand href="#home">STUDENT</Navbar.Brand>
+          <Navbar.Brand href="/welcome">STUDENT</Navbar.Brand>
         </Container>
 
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
