@@ -25,15 +25,8 @@ GET http://localhost:3000/login/logout
 GET http://localhost:3000/login/sess
 
 ###
-<<<<<<< HEAD
+
 GET http://localhost:9000/student_profile/60735c9a05c33006340f1d98
-=======
-<<<<<<< HEAD
-GET http://localhost:9000/student_profile/60735c9a05c33006340f1d98
-=======
-GET http://localhost:9000/student_profile
->>>>>>> 9d862c74c6b1b97d50469d23704f0c0838970a64
->>>>>>> c064a0c680742b9c3076b287ec74abf6e8bb52af
 
 ###
 PATCH http://localhost:9000/student_profile/update/607bcde443b7683b844dcad5/b@a.com
