@@ -2,7 +2,9 @@ require("dotenv").config();
 const express = require("express");
 const router = express.Router();
 const Login = require("../models/login");
+const student_profile = require("../models/student_profile");
 const bodyParser = require("body-parser");
+//const mongoose = require("mongoose")
 
 const session = require("express-session");
 const passport = require("passport");
@@ -59,7 +61,7 @@ router.get(
 router.get(
   "/auth/google/secrets",
   passport.authenticate("google", { failureRedirect: "/auth/google" }),
-  function (req, res) {
+  async function (req, res) {
     // Successful authentication, redirect home.
     //var sess = req.session;
     //sess.username = profile.emails[0].value;
@@ -68,6 +70,39 @@ router.get(
     res.cookie("userid", req.user.id);
     res.cookie("username", req.user.username);
     // res.json({ userid: req.user.id, username: req.user.username });
+    res.redirect("http://localhost:3000/welcome");
+
+    // console.log(req.user);
+    // res.json({ userid: req.user.id, username: req.user.username });
+
+    // var student =  student_profile.findOne({ userid: req.user.id });
+    // console.log(student.name)
+    // //if(student == undefined){
+    // const newstudent = new student_profile({
+    //   email: req.user.username,
+    //   name: req.user.name,
+    //   userid: req.user.id,
+
+    // });
+    //console.log(newstudent)
+    //let student;
+    try {
+      let student;
+      student = await student_profile.findOne({ email: req.user.username });
+      if (student === null) {
+        const newstudent = new student_profile({
+          email: req.user.username,
+          name: req.user.name,
+          userid: req.user.id,
+        });
+        student = newstudent.save();
+      }
+      console.log(student + "student");
+    } catch (err) {
+      console.log(err);
+    }
+
+    // res.status(200).json({ userid: req.user.id, username: req.user.username });
     res.redirect("http://localhost:3000/welcome");
   }
 );
@@ -83,6 +118,22 @@ router.post("/register", function (req, res) {
       } else {
         passport.authenticate("local")(req, res, function () {
           res.send("1");
+
+          const newstudent = new student_profile({
+            email: req.body.username,
+            name: req.body.name,
+            userid: req.user.id,
+            // email: req.params.email,
+          });
+
+          const student = newstudent.save();
+          // res.status(201).json(newstudent);
+          //res.student = newstudent;
+          //next();
+          //res.json({ student });
+          // } catch (err) {
+          //   res.status(400).json({ message: err.message });
+          // }
         });
       }
     }

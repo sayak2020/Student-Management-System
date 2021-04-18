@@ -124,31 +124,20 @@ async function getStudent(req, res, next) {
   try {
     student = await student_profile.findOne({ userid: req.params.id });
     console.log(student);
-    if (res.student != null) {
-      res.student = student;
-      next();
-    }
+    //if (res.student != null) {
+      //res.student = student;
+      //next();
+    //}
   } catch (err) {
     //return res.status(404).json({message: 'Cannot find student'});
-    const student = new student_profile({
-      //email: req.user.username,
-      userid: req.params.id,
-      email: req.params.email,
-    });
-    try {
-      const newstudent = await student.save();
-      // res.status(201).json(newstudent);
-      res.student = newstudent;
-      next();
-    } catch (err) {
-      res.status(400).json({ message: err.message });
-    }
+    
 
-    // res.status(500).json({ message: err.message });
+    res.status(500).json({ message: err.message });
   }
   //   res.student = student;
   // res.json(subscriber.name);
-  //next();
+  res.student = student;
+  next();
 }
 
 module.exports = router;
