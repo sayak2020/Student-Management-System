@@ -27,7 +27,7 @@
   max-height: 40px;
 }
 
-.get-started-btn-front {
+.get-started-btn {
   margin-left: 25px;
   color: #fff !important;
   border-radius: 50px;
@@ -39,18 +39,18 @@
   border: 2px solid #47b2e4;
   font-weight: 600;
 }
-.get-started-btn-front:hover {
+.get-started-btn:hover {
   background: #31a9e1;
   color: #fff;
 }
 @media (max-width: 768px) {
-  .get-started-btn-front {
+  .get-started-btn {
     margin: 0 48px 0 0;
     padding: 6px 20px 7px 20px;
   }
 }
 
-#hero-frnt {
+#hero {
   width: 100%;
   height: 100%;
   background: #37517e;
@@ -58,11 +58,15 @@
   padding-top: 90px;
 }
 
-#hero-frnt .container {
+#hero .animate {
+  animation: up-down 2s ease-in-out infinite alternate-reverse both;
+}
+
+#hero .container {
   padding-top: 72px;
 }
 
-#hero-frnt h1 {
+#hero h1 {
   margin: 0 0 10px 0;
   font-size: 48px;
   font-weight: 700;
@@ -70,13 +74,13 @@
   color: #fff;
 }
 
-#hero-frnt h2 {
+#hero h2 {
   color: rgba(255, 255, 255, 0.6);
   margin-bottom: 50px;
   font-size: 24px;
 }
 
-#hero-frnt .btn-get-started {
+#hero .btn-get-started {
   font-family: "Jost", sans-serif;
   align-items: center;
   font-weight: 500;
@@ -89,16 +93,13 @@
   margin: 10px 0 0 0;
   color: #fff;
   background: #47b2e4;
+  margin-top: 20px;
 }
 
 .row-student {
   padding-right: 50px;
 }
 
-.login-button-frnt {
-  padding-left: 120px;
-}
-
-#hero-frnt .animated-frnt {
-  animation: up-down 2s ease-in-out infinite alternate-reverse both;
+.login-button {
+  padding-left: 160px;
 }

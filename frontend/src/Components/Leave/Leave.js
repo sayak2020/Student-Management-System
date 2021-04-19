@@ -21,6 +21,7 @@ class Leave extends Component {
     from: "",
     to: "",
     cause: "",
+    message: "",
   };
   postDataHandler = () => {
     const post = {
@@ -28,6 +29,8 @@ class Leave extends Component {
       to: this.state.to,
       cause: this.state.cause,
     };
+
+    this.setState({ message: "Application for leave given" });
 
     const cookies = new Cookies();
 
@@ -52,6 +55,9 @@ class Leave extends Component {
           </CardHeader>
           <CardBody className="pt-0 pt-md-4">
             <div className="text-center">
+              {this.state.message && (
+                <p className="message"> {this.state.message} </p>
+              )}
               <FormGroup>
                 <p>From</p>
                 <Input

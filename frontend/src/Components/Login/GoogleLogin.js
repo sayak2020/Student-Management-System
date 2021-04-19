@@ -39,7 +39,7 @@ class GoogleLogin extends Component {
               src={require("../../img/icons/common/google.svg").default}
             />
           </span>
-          <span className="btn-inner--text">Google</span>
+          <span className="btn-inner--text">oogle</span>
         </Button>
       </div>
     );
