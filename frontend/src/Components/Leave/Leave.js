@@ -99,9 +99,9 @@ class Leave extends Component {
                 />
               </FormGroup>
             </div>
-            <Button
-              className="float-center"
-              color="default"
+            <Button 
+              className="btn btn-primary"
+              color=""
               size="sm"
               onClick={this.postDataHandler}
             >

@@ -4,7 +4,8 @@ Content-Type: application/json
 
 {   
     
-    "username": "souvik",
+   
+    "username": "jonty@a.com",
     "password": "123"
 }
 
@@ -14,7 +15,7 @@ POST http://localhost:9000/login/register
 Content-Type: application/json
 
 {   
-    "username": "souvik",
+    "username": "jonty@a.com",
     "password": "123"
 }
 ###
@@ -49,7 +50,7 @@ Content-Type: application/json
 GET http://localhost:3000/student_profile/trial
 
 ###
-GET http://localhost:9000/leave/6071d0d388162110b40340eb
+GET http://localhost:9000/leave/approved/60819401be83ff3b90a3bed7
 
 ###
 POST http://localhost:9000/leave/6071d0d388162110b40340eb/souvik
@@ -62,7 +63,7 @@ Content-Type: application/json
 }
 
 ###
-POST http://localhost:9000/attendence/6071d0d388162110b40340eb/souvik
+POST http://localhost:9000/attendence/60819401be83ff3b90a3bed7/jonty@a.com
 Content-Type: application/json
 
 {
