@@ -20,11 +20,14 @@ import {
 class Attendance extends Component {
   state = {
     subject: "",
+    message: "",
   };
   postDataHandler = () => {
     const post = {
       subject: this.state.subject,
     };
+
+    this.setState({ message: "Attendance given" });
 
     const cookies = new Cookies();
 
@@ -50,6 +53,9 @@ class Attendance extends Component {
           </CardHeader>
           <CardBody className="pt-0 pt-md-4">
             <div className="text-center">
+              {this.state.message && (
+                <p className="message"> {this.state.message} </p>
+              )}
               <FormGroup>
                 <Input
                   className="form-control-alternative"

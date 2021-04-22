@@ -19,7 +19,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import "./UpdateProfile.css";
 import Login from "../Login/Login";
-import Cookies from 'universal-cookie';
+import Cookies from "universal-cookie";
 // reactstrap components
 import {
   Button,
@@ -46,6 +46,7 @@ class Profile extends Component {
     street: "",
     city: "",
     pin: "",
+    message: "",
   };
 
   postDataHandler = () => {
@@ -60,11 +61,14 @@ class Profile extends Component {
       pin: this.state.pin,
     };
 
+    this.setState({ message: "Updated Successfully" });
 
-  const cookies = new Cookies();
+    const cookies = new Cookies();
 
     axios.patch(
-      `http://localhost:9000/student_profile/update/${cookies.get('userid')}/${cookies.get('username')}`,
+      `http://localhost:9000/student_profile/update/${cookies.get(
+        "userid"
+      )}/${cookies.get("username")}`,
       patch
     );
   };
@@ -94,6 +98,9 @@ class Profile extends Component {
                 </Row>
               </CardHeader>
               <CardBody>
+                {this.state.message && (
+                  <p className="message"> {this.state.message} </p>
+                )}
                 <Form>
                   <div className="pl-lg-4">
                     <Row>

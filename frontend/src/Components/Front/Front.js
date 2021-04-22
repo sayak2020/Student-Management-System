@@ -13,7 +13,7 @@ function Front() {
           <a className="get-started-btn scrollto">Admin</a>
         </div>
       </header>
-      <section id="hero-frnt" className="d-flex align-items-center">
+      <section id="hero" className="d-flex align-items-center">
         <div className="container">
           <div className="row">
             <div
@@ -23,10 +23,8 @@ function Front() {
             >
               <h1>STUDENT MANAGEMENT</h1>
               <Link to="/login">
-                <div className="d-lg-flex login-button-front">
-                  <a className="btn-get-started-front scrollto">
-                    Login As Student
-                  </a>
+                <div className="d-lg-flex login-button">
+                  <a className="btn-get-started scrollto">Login As Student</a>
                 </div>
               </Link>
             </div>
@@ -37,7 +35,7 @@ function Front() {
             >
               <img
                 src="../img/hero-img.png"
-                className="img-fluid animated-front"
+                className="img-fluid animate"
                 alt=""
               />
             </div>
