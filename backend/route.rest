@@ -72,3 +72,7 @@ Content-Type: application/json
 
 ###
 GET  http://localhost:9000/attendence/6071d0d388162110b40340eb
+
+
+###
+GET  http://localhost:9000/admin_viewprofile
