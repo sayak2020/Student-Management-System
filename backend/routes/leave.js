@@ -12,6 +12,16 @@ router.get("/:id", async (req, res) => {
   }
 });
 
+router.get("/approved/:id", async (req, res) => {
+  try {
+    const leaveApplications = await leave.find({ userid: req.params.id ,status:"approved"});
+    res.json({ leaveApplications });
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+});
+
+
 router.post("/:id/:email", async (req, res) => {
   const Leave = new leave({
     email: req.params.email,
