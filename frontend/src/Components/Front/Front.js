@@ -10,7 +10,9 @@ function Front() {
           <h1 className="logo mr-auto">
             <a>Student</a>
           </h1>
-          <a className="get-started-btn scrollto">Admin</a>
+          <a href="/adminlanding" className="get-started-btn scrollto">
+            Admin
+          </a>
         </div>
       </header>
       <section id="hero" className="d-flex align-items-center">

@@ -10,6 +10,8 @@ import Attendance from "./Components/Attendance/Attendance";
 import CheckAttendance from "./Components/CheckAttendance/CheckAttendance";
 import Leave from "./Components/Leave/Leave";
 import LeaveHistory from "./Components/Leave/LeaveHistory/LeaveHistory";
+import StudentProfile from "./Components/Admin/StudentProfiles/StudentProfile";
+import AdminLanding from "./Components/Admin/AdminLanding/AdminLanding";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
@@ -22,6 +24,12 @@ class App extends Component {
           <Switch>
             <Route path="/register">
               <Register />
+            </Route>
+            <Route path="/studentprofile">
+              <StudentProfile />
+            </Route>
+            <Route path="/adminlanding">
+              <AdminLanding />
             </Route>
             <Route path="/login">
               <Login />

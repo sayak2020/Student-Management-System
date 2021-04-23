@@ -34,7 +34,7 @@ import {
   Col,
 } from "reactstrap";
 // core components
-import UserHeader from "../Headers/UserHeader";
+//import UserHeader from "../Headers/UserHeader";
 
 class Profile extends Component {
   state = {
