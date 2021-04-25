@@ -4,6 +4,7 @@ import { Card, Button, CardTitle, CardText, Row, Col } from "reactstrap";
 const StudentCard = (props) => {
   return (
     <Row>
+      <a href={props.email}>Click</a>
       <Col sm="4">
         <Card body>
           <div className="text-center">

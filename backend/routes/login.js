@@ -114,7 +114,7 @@ router.post("/register", function (req, res) {
 
     function (err, user) {
       if (err) {
-        res.redirect("/login");
+        res.send("Already registereed");
       } else {
         passport.authenticate("local")(req, res, function () {
           res.send("1");

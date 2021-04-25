@@ -76,3 +76,22 @@ GET  http://localhost:9000/attendence/6071d0d388162110b40340eb
 
 ###
 GET  http://localhost:9000/admin_viewprofile
+
+###
+GET  http://localhost:9000/admin_viewprofile/cse
+
+###
+GET  http://localhost:9000/admin_leave/approved/chatterjeesayak20@gmail.com
+
+###
+GET  http://localhost:9000/admin_leave/approve/16
+
+
+###
+GET  http://localhost:9000/admin_leave/view/pending
+
+###
+GET http://localhost:9000/admin_attendence/sayak@a.com
+
+###
+GET http://localhost:9000/admin_attendence/ed/chatterjeesayak20@gmail.com/trial

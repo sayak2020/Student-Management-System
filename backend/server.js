@@ -50,6 +50,12 @@ app.use("/attendence", attendence);
 const admin_viewprofile = require("./routes/admin_viewprofile");
 app.use("/admin_viewprofile", admin_viewprofile);
 
+const admin_attendence = require("./routes/admin_attendence");
+app.use("/admin_attendence", admin_attendence);
+
+const admin_leave = require("./routes/admin_leave");
+app.use("/admin_leave", admin_leave);
+
 app.listen(9000, () => {
   console.log("Server startded at 9000");
 });

@@ -52,6 +52,10 @@ class Register extends React.Component {
           });
         } else {
           console.log("username already taken");
+          this.setState({
+            //redirect to login page
+            redirectTo: "/login",
+          });
         }
       })
       .catch((error) => {
