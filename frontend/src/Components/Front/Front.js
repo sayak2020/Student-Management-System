@@ -1,18 +1,21 @@
 import React from "react";
 import "./Front.css";
-import { Link } from "react-router-dom";
+import { Button } from "reactstrap";
 
 function Front() {
   return (
     <div>
       <header id="header-front" className="fixed-top ">
         <div className="container d-flex align-items-center">
-          <h1 className="logo mr-auto">
-            <a>Student</a>
-          </h1>
-          <a href="/adminlanding" className="get-started-btn scrollto">
+          <h1 className="logo mr-auto">Student</h1>
+          <Button
+            outline
+            color="secondary"
+            href="/adminlanding"
+            className="get-started-btn scrollto"
+          >
             Admin
-          </a>
+          </Button>
         </div>
       </header>
       <section id="hero" className="d-flex align-items-center">
@@ -24,11 +27,17 @@ function Front() {
               data-aos-delay={200}
             >
               <h1>STUDENT MANAGEMENT</h1>
-              <Link to="/login">
-                <div className="d-lg-flex login-button">
-                  <a className="btn-get-started scrollto">Login As Student</a>
-                </div>
-              </Link>
+
+              <div className="d-lg-flex login-button">
+                <Button
+                  outline
+                  color="secondary"
+                  href="/login"
+                  className="btn-get-started scrollto"
+                >
+                  Login As Student
+                </Button>
+              </div>
             </div>
             <div
               className="col-lg-6 order-1 order-lg-2 hero-img"

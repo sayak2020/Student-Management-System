@@ -1,28 +1,9 @@
-/*!
-
-=========================================================
-* Argon Dashboard React - v1.2.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/argon-dashboard-react
-* Copyright 2021 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://github.com/creativetimofficial/argon-dashboard-react/blob/master/LICENSE.md)
-
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-*/
 import React from "react";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
 import Cookies from "universal-cookie";
 import GoogleLogin from "./GoogleLogin";
 import "./Login.css";
-
-// reactstrap components
 import {
   Button,
   Card,
@@ -71,12 +52,6 @@ class Login extends React.Component {
         console.log(cookies.get("username"));
 
         if (response.status === 200) {
-          // update App.js state
-          // this.props.updateUser({
-          //   loggedIn: true,
-          //   username: response.data.username,
-          // });
-          // update the state to redirect to user
           this.setState({
             redirectTo: "/welcome",
           });
@@ -111,11 +86,6 @@ class Login extends React.Component {
                   <Form role="form">
                     <FormGroup className="mb-3-login">
                       <InputGroup className="input-group-alternative-login">
-                        <InputGroupAddon addonType="prepend">
-                          <InputGroupText>
-                            <i className="ni ni-email-83" />
-                          </InputGroupText>
-                        </InputGroupAddon>
                         <Input
                           placeholder="Email"
                           type="email"
@@ -125,17 +95,12 @@ class Login extends React.Component {
                               username: event.target.value,
                             })
                           }
-                          autoComplete="new-email"
+                          required
                         />
                       </InputGroup>
                     </FormGroup>
                     <FormGroup>
                       <InputGroup className="input-group-alternative-login">
-                        <InputGroupAddon addonType="prepend">
-                          <InputGroupText>
-                            <i className="ni ni-lock-circle-open" />
-                          </InputGroupText>
-                        </InputGroupAddon>
                         <Input
                           placeholder="Password"
                           type="password"

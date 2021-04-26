@@ -17,9 +17,6 @@
   font-weight: 500;
   letter-spacing: 2px;
   text-transform: uppercase;
-}
-
-#header-front .logo a {
   color: #fff;
 }
 
@@ -30,17 +27,17 @@
 .get-started-btn {
   margin-left: 25px;
   color: #fff !important;
-  border-radius: 50px;
+  border-radius: 50px !important;
   padding: 6px 25px 7px 25px;
   white-space: nowrap;
   transition: 0.3s;
   font-size: 14px;
   display: inline-block;
   border: 2px solid #47b2e4;
-  font-weight: 600;
+  font-weight: 600 !important;
 }
 .get-started-btn:hover {
-  background: #31a9e1;
+  background: #143544 !important;
   color: #fff;
 }
 @media (max-width: 768px) {
@@ -53,8 +50,8 @@
 #hero {
   width: 100%;
   height: 100%;
-  background: #37517e;
-  padding-bottom: 163px;
+  background: #061020;
+  padding-bottom: 130px;
   padding-top: 90px;
 }
 
@@ -63,7 +60,7 @@
 }
 
 #hero .container {
-  padding-top: 72px;
+  padding-top: 62px;
 }
 
 #hero h1 {
@@ -90,10 +87,12 @@
   padding: 10px 28px 11px 28px;
   border-radius: 50px;
   transition: 0.5s;
-  margin: 10px 0 0 0;
   color: #fff;
-  background: #47b2e4;
   margin-top: 20px;
+}
+.btn-get-started:hover {
+  background: #143544 !important;
+  color: #fff;
 }
 
 .row-student {

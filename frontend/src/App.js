@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Front from "./Components/Front/Front";
-import Register from "./Components/Register";
+import Register from "./Components/Register/Register";
 import Login from "./Components/Login/Login";
 import Welcome from "./Components/Welcome";
 import Navigation from "./Components/Navigation";

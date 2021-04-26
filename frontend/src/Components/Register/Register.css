@@ -1,34 +1,34 @@
-.bg-secondary-login {
+.bg-secondary--register {
   background-color: #f7fafc !important;
 }
 
-a.bg-secondary-login:hover,
-a.bg-secondary-login:focus,
-button.bg-secondary-login:hover,
-button.bg-secondary-login:focus {
+a.bg-secondary--register:hover,
+a.bg-secondary--register:focus,
+button.bg-secondary--register:hover,
+button.bg-secondary--register:focus {
   background-color: #d2e3ee !important;
 }
-.border-0-login {
+.border-0--register {
   border: 0 !important;
 }
-.bg-transparent-login {
+.bg-transparent--register {
   background-color: transparent !important;
 }
-.pb-5-login,
+.pb-5--register,
 .py-5 {
   padding-bottom: 3rem !important;
 }
-.text-muted-login {
+.text-muted--register {
   color: #8898aa !important;
 }
-.text-center-login {
+.text-center--register {
   text-align: center !important;
 }
-.mt-2-login,
+.mt-2--register,
 .my-2 {
   margin-top: 0.5rem !important;
 }
-.mb-3-login,
+.mb-3--register,
 .my-3 {
   margin-bottom: 1rem !important;
 }
@@ -40,23 +40,23 @@ button.bg-secondary-login:focus {
 .py-lg-5 {
   padding-bottom: 3rem !important;
 }
-.mb-4-login,
+.mb-4--register,
 .my-4 {
   margin-bottom: 1.5rem !important;
 }
 
-.input-group-alternative-login {
+.input-group-alternative--register {
   box-shadow: 0 1px 3px rgba(50, 50, 93, 0.15), 0 1px 0 rgba(0, 0, 0, 0.02);
   border: 0;
   transition: box-shadow 0.15s ease;
 }
-.input-group-alternative-login .form-control,
-.input-group-alternative-login .input-group-text {
+.input-group-alternative--register .form-control,
+.input-group-alternative--register .input-group-text {
   border: 0;
   box-shadow: none;
 }
 
-.logincontainer {
+.-registercontainer {
   position: relative;
   width: 100%;
   margin-left: 460px;
@@ -70,7 +70,7 @@ button.bg-secondary-login:focus {
   margin-bottom: 0px;
 }
 
-.loginpage {
+.registerpage {
   background-color: #061020;
 
   padding-top: 20px;
