@@ -1,6 +1,5 @@
 import React from "react";
 import { useTable } from "react-table";
-//import "./CheckAttendance.css";
 
 export default function Table({ columns, data }) {
   // Use the useTable Hook to send the columns and data to build the table
@@ -25,7 +24,7 @@ export default function Table({ columns, data }) {
         {headerGroups.map((headerGroup) => (
           <tr {...headerGroup.getHeaderGroupProps()}>
             {headerGroup.headers.map((column) => (
-              <th className="custom-leave-header" {...column.getHeaderProps()}>
+              <th className="custom-header" {...column.getHeaderProps()}>
                 {column.render("Header")}
               </th>
             ))}
@@ -39,7 +38,7 @@ export default function Table({ columns, data }) {
             <tr {...row.getRowProps()}>
               {row.cells.map((cell) => {
                 return (
-                  <td className="custom-leave-row" {...cell.getCellProps()}>
+                  <td className="custom-row" {...cell.getCellProps()}>
                     {cell.render("Cell")}
                   </td>
                 );

@@ -53,71 +53,76 @@ class Leave extends Component {
               <h6>Leave Application</h6>
             </div>
           </CardHeader>
-          <CardBody className="pt-0 pt-md-4">
-            <div className="text-center">
-              {this.state.message && (
-                <p className="message"> {this.state.message} </p>
-              )}
-              <FormGroup>
-                <p>From</p>
-                <Input
-                  className="form-control-alternative"
-                  id="input-date"
-                  type="date"
-                  value={this.state.from}
-                  onChange={(event) =>
-                    this.setState({ from: event.target.value })
-                  }
-                />
-              </FormGroup>
-            </div>
-            <div className="text-center">
-              <FormGroup>
-                <p>To</p>
-                <Input
-                  className="form-control-alternative"
-                  id="input-date"
-                  type="date"
-                  value={this.state.to}
-                  onChange={(event) =>
-                    this.setState({ to: event.target.value })
-                  }
-                />
-              </FormGroup>
-            </div>
-            <div className="text-center">
-              <FormGroup>
-                <p>Cause</p>
-                <Input
-                  className="form-control-alternative"
-                  id="input-cause"
-                  type="text"
-                  value={this.state.cause}
-                  onChange={(event) =>
-                    this.setState({ cause: event.target.value })
-                  }
-                />
-              </FormGroup>
-            </div>
-            <Button 
-              className="btn btn-primary"
-              color=""
-              size="sm"
-              onClick={this.postDataHandler}
-            >
-              Apply
-            </Button>
-            <div>
+          <Form onSubmit={this.postDataHandler}>
+            <CardBody className="pt-0 pt-md-4">
+              <div className="text-center">
+                {this.state.message && (
+                  <p className="message"> {this.state.message} </p>
+                )}
+                <FormGroup>
+                  <p>From</p>
+                  <Input
+                    className="form-control-alternative"
+                    id="input-date"
+                    type="date"
+                    value={this.state.from}
+                    onChange={(event) =>
+                      this.setState({ from: event.target.value })
+                    }
+                    required
+                  />
+                </FormGroup>
+              </div>
+              <div className="text-center">
+                <FormGroup>
+                  <p>To</p>
+                  <Input
+                    className="form-control-alternative"
+                    id="input-date"
+                    type="date"
+                    value={this.state.to}
+                    onChange={(event) =>
+                      this.setState({ to: event.target.value })
+                    }
+                    required
+                  />
+                </FormGroup>
+              </div>
+              <div className="text-center">
+                <FormGroup>
+                  <p>Cause</p>
+                  <Input
+                    className="form-control-alternative"
+                    id="input-cause"
+                    type="text"
+                    value={this.state.cause}
+                    onChange={(event) =>
+                      this.setState({ cause: event.target.value })
+                    }
+                    required
+                  />
+                </FormGroup>
+              </div>
               <Button
-                className="float-center"
-                color="default"
+                className="btn btn-primary"
+                color=""
                 size="sm"
-                href="/leavehistory"
+                type="submit"
               >
-                Leave History
+                Apply
               </Button>
-            </div>
-          </CardBody>
+              <div>
+                <Button
+                  className="float-center"
+                  color="default"
+                  size="sm"
+                  href="/leavehistory"
+                >
+                  Leave History
+                </Button>
+              </div>
+            </CardBody>
+          </Form>
         </Card>
       </div>
     );

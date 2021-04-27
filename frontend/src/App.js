@@ -12,6 +12,9 @@ import Leave from "./Components/Leave/Leave";
 import LeaveHistory from "./Components/Leave/LeaveHistory/LeaveHistory";
 import StudentProfile from "./Components/Admin/StudentProfiles/StudentProfile";
 import AdminLanding from "./Components/Admin/AdminLanding/AdminLanding";
+import AdminAttendance from "./Components/Admin/AdminAttendance/AdminAttendance";
+import PendingLeave from "./Components/Admin/AdminLeave/AdminLeavePending";
+import ApprovedLeave from "./Components/Admin/AdminApproved/ApprovedLeave";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
@@ -25,15 +28,27 @@ class App extends Component {
             <Route path="/register">
               <Register />
             </Route>
+
             <Route path="/studentprofile">
               <StudentProfile />
             </Route>
+            <Route path="/admin_attendance/:email">
+              <AdminAttendance />
+            </Route>
+            <Route path="/approved_leave/:email">
+              <ApprovedLeave />
+            </Route>
+
             <Route path="/adminlanding">
               <AdminLanding />
             </Route>
             <Route path="/login">
               <Login />
             </Route>
+            <Route path="/pendingleave">
+              <PendingLeave />
+            </Route>
+
             <Route path="/welcome">
               <Navigation />
 

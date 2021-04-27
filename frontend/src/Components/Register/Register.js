@@ -76,7 +76,7 @@ class Register extends React.Component {
                   </div>
                 </CardHeader>
                 <CardBody className="px-lg-5 py-lg-5">
-                  <Form role="form">
+                  <Form role="form" onSubmit={this.handleSubmit}>
                     <FormGroup>
                       <InputGroup className="input-group-alternative mb-3">
                         <InputGroupAddon addonType="prepend">
@@ -93,6 +93,7 @@ class Register extends React.Component {
                               name: event.target.value,
                             })
                           }
+                          required
                         />
                       </InputGroup>
                     </FormGroup>
@@ -112,6 +113,7 @@ class Register extends React.Component {
                               username: event.target.value,
                             })
                           }
+                          required
                         />
                       </InputGroup>
                     </FormGroup>
@@ -132,20 +134,14 @@ class Register extends React.Component {
                               password: event.target.value,
                             })
                           }
+                          required
                         />
                       </InputGroup>
                     </FormGroup>
 
-                    <div className="text-center">
-                      <Button
-                        className="mt-4"
-                        color="primary"
-                        type="button"
-                        onClick={this.handleSubmit}
-                      >
-                        Create account
-                      </Button>
-                    </div>
+                    <Button type="submit" value="Submit" color="primary">
+                      Create Account
+                    </Button>
                   </Form>
                 </CardBody>
               </Card>

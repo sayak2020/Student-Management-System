@@ -83,7 +83,8 @@ class Login extends React.Component {
                   <div className="text-center-login text-muted-login mb-4-login">
                     <small>Or sign in with credentials</small>
                   </div>
-                  <Form role="form">
+
+                  <Form role="form" onSubmit={this.handleSubmit}>
                     <FormGroup className="mb-3-login">
                       <InputGroup className="input-group-alternative-login">
                         <Input
@@ -111,11 +112,15 @@ class Login extends React.Component {
                               password: event.target.value,
                             })
                           }
+                          required
                         />
                       </InputGroup>
                     </FormGroup>
+                    <Button type="submit" value="Submit" color="primary">
+                      Login
+                    </Button>
 
-                    <div className="text-center-login">
+                    {/* <div className="text-center-login">
                       <Button
                         className="my-4"
                         color="primary"
@@ -124,7 +129,7 @@ class Login extends React.Component {
                       >
                         Sign in
                       </Button>
-                    </div>
+                    </div> */}
                   </Form>
                 </CardBody>
               </Card>

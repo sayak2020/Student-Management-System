@@ -72,6 +72,7 @@ class Profile extends Component {
       patch
     );
   };
+
   render() {
     return (
       <>
@@ -86,22 +87,13 @@ class Profile extends Component {
                       User information
                     </h6>
                   </Col>
-                  <Col className="text-right-update" xs="4">
-                    <Button
-                      color="primary"
-                      onClick={this.postDataHandler}
-                      size="sm"
-                    >
-                      Save
-                    </Button>
-                  </Col>
                 </Row>
               </CardHeader>
               <CardBody>
                 {this.state.message && (
                   <p className="message"> {this.state.message} </p>
                 )}
-                <Form>
+                <Form onSubmit={this.postDataHandler}>
                   <div className="pl-lg-4">
                     <Row>
                       <Col lg="6">
@@ -116,10 +108,11 @@ class Profile extends Component {
                             className="form-control-alternative"
                             id="input-username"
                             type="text"
-                            value={this.state.name}
+                            placeholder="hello"
                             onChange={(event) =>
                               this.setState({ name: event.target.value })
                             }
+                            required
                           />
                         </FormGroup>
                       </Col>
@@ -136,6 +129,7 @@ class Profile extends Component {
                             onChange={(event) =>
                               this.setState({ phone: event.target.value })
                             }
+                            required
                           />
                         </FormGroup>
                       </Col>
@@ -162,6 +156,7 @@ class Profile extends Component {
                             onChange={(event) =>
                               this.setState({ stream: event.target.value })
                             }
+                            required
                           />
                         </FormGroup>
                       </Col>
@@ -181,6 +176,7 @@ class Profile extends Component {
                             onChange={(event) =>
                               this.setState({ section: event.target.value })
                             }
+                            required
                           />
                         </FormGroup>
                       </Col>
@@ -200,6 +196,7 @@ class Profile extends Component {
                             onChange={(event) =>
                               this.setState({ year: event.target.value })
                             }
+                            required
                           />
                         </FormGroup>
                       </Col>
@@ -222,6 +219,7 @@ class Profile extends Component {
                             onChange={(event) =>
                               this.setState({ city: event.target.value })
                             }
+                            required
                           />
                         </FormGroup>
                       </Col>
@@ -241,6 +239,7 @@ class Profile extends Component {
                             onChange={(event) =>
                               this.setState({ street: event.target.value })
                             }
+                            required
                           />
                         </FormGroup>
                       </Col>
@@ -260,12 +259,19 @@ class Profile extends Component {
                             onChange={(event) =>
                               this.setState({ pin: event.target.value })
                             }
+                            required
                           />
                         </FormGroup>
                       </Col>
                     </Row>
+
+                    <hr className="my-4" />
+                    <Col className="text-right-update" xs="4">
+                      <Button type="submit" value="Submit" color="primary">
+                        Save
+                      </Button>
+                    </Col>
                   </div>
-                  <hr className="my-4" />
                 </Form>
               </CardBody>
             </Card>

@@ -20,6 +20,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import "./Userprofile.css";
 import Cookies from "universal-cookie";
+import Updateprofile from "../Updateprofile/Updateprofile";
 
 // reactstrap components
 import {

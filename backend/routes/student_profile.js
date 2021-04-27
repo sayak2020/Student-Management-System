@@ -125,12 +125,11 @@ async function getStudent(req, res, next) {
     student = await student_profile.findOne({ userid: req.params.id });
     console.log(student);
     //if (res.student != null) {
-      //res.student = student;
-      //next();
+    //res.student = student;
+    //next();
     //}
   } catch (err) {
     //return res.status(404).json({message: 'Cannot find student'});
-    
 
     res.status(500).json({ message: err.message });
   }

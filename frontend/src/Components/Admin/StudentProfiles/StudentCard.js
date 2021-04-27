@@ -1,11 +1,33 @@
 import React from "react";
-import { Card, Button, CardTitle, CardText, Row, Col } from "reactstrap";
+import { Card, Button, CardHeader, CardText, Row, Col } from "reactstrap";
+import { Link } from "react-router-dom";
 
 const StudentCard = (props) => {
   return (
     <Row>
-      <a href={props.email}>Click</a>
       <Col sm="4">
+        <CardHeader className="text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4">
+          <div className="d-flex justify-content-between">
+            <Link
+              to={{
+                pathname: `admin_attendance/${props.email}`,
+              }}
+            >
+              <Button className="float-right" color="default" size="sm">
+                View Attendance
+              </Button>
+            </Link>
+            <Link
+              to={{
+                pathname: `approved_leave/${props.email}`,
+              }}
+            >
+              <Button className="float-right" color="default" size="sm">
+                Granted Leave
+              </Button>
+            </Link>
+          </div>
+        </CardHeader>
         <Card body>
           <div className="text-center">
             <h3>Name: {props.name}</h3>

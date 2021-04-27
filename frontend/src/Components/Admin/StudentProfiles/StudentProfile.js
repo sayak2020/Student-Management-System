@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import StudentCard from "./StudentCard";
+import Navigation from "../FilterNav/Navigation";
 
 class StudentProfile extends Component {
   state = {
@@ -9,7 +10,7 @@ class StudentProfile extends Component {
 
   componentDidMount() {
     axios.get("http://localhost:9000/admin_viewprofile").then((response) => {
-      console.log(response.data);
+      // console.log(response.data);
       this.setState({ users: response.data.student });
     });
   }
@@ -30,7 +31,12 @@ class StudentProfile extends Component {
         />
       );
     });
-    return <div>{users}</div>;
+    return (
+      <div>
+        <Navigation />
+        {users}
+      </div>
+    );
   }
 }
 
