@@ -4,8 +4,8 @@ Content-Type: application/json
 
 {   
     
-   
-    "username": "jonty@a.com",
+    
+    "username": "USER",
     "password": "123"
 }
 
@@ -14,10 +14,10 @@ Content-Type: application/json
 POST http://localhost:9000/login/register
 Content-Type: application/json
 
-{   
-    "username": "jonty@a.com",
+{   "name":"sayak",
+    "username": "USER",
     "password": "123"
-}
+}    
 ###
 GET http://localhost:3000/login/logout
 
@@ -95,3 +95,49 @@ GET http://localhost:9000/admin_attendence/sayak@a.com
 
 ###
 GET http://localhost:9000/admin_attendence/ed/chatterjeesayak20@gmail.com/trial
+
+###
+POST http://localhost:9000/admin_login/a/a_register
+Content-Type: application/json
+
+{   "name":"Tohit",
+    "username": "ADMIN@a.com",
+    "password": "123"
+}
+
+###
+POST http://localhost:9000/admin_login/a/a_login
+Content-Type: application/json
+
+{   
+    
+    "username": "USER",
+    "password": "123"
+}
+
+###
+GET  http://localhost:9000/admin_login/a/logout
+
+###
+POST http://localhost:9000/test
+Content-Type: application/json
+
+{
+    "name":"Science103",
+    "subject":"sc101",
+    "questions":[
+        {"question": "Trial question","options":[{"A":"hi","B":"hi","C":"hi","D":"hi"}], "ans":"A","marks":5},
+        {"question": "Trial question2","options":[{"A":"hi","B":"hi","C":"hi","D":"hi"}], "ans":"A","marks":1},
+        {"question": "Trial question2","options":[{"A":"hi","B":"hi","C":"hi","D":"hi"}], "ans":"A","marks":2}
+    ]
+        
+}
+
+###
+POST http://localhost:9000/test_respons/0
+Content-Type: application/json
+
+{   
+    "email":"sayaktrial",
+    "answers":["A","A","B"]
+}

@@ -56,6 +56,15 @@ app.use("/admin_attendence", admin_attendence);
 const admin_leave = require("./routes/admin_leave");
 app.use("/admin_leave", admin_leave);
 
+const admin_login = require("./routes/admin/admin_login");
+app.use("/admin_login", admin_login);
+
+const test = require("./routes/test");
+app.use("/test", test);
+
+const test_respons = require("./routes/test_respons");
+app.use("/test_respons", test_respons);
+
 app.listen(9000, () => {
   console.log("Server startded at 9000");
 });

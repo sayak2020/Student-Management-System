@@ -19,7 +19,7 @@ router.use(bodyParser.json());
 // router.use(passport.initialize());
 // router.use(passport.session());
 
-passport.use(Login.createStrategy());
+//passport.use("login", Login.createStrategy());
 
 passport.serializeUser(function (Login, done) {
   return done(null, Login.id);
@@ -31,7 +31,7 @@ passport.deserializeUser(function (id, done) {
 });
 
 const LocalStrategy = require("passport-local").Strategy;
-passport.use(new LocalStrategy(Login.authenticate()));
+passport.use("login", new LocalStrategy(Login.authenticate()));
 
 passport.use(
   new GoogleStrategy(
@@ -70,7 +70,7 @@ router.get(
     res.cookie("userid", req.user.id);
     res.cookie("username", req.user.username);
     // res.json({ userid: req.user.id, username: req.user.username });
-   // res.redirect("http://localhost:3000/welcome");
+    // res.redirect("http://localhost:3000/welcome");
 
     // console.log(req.user);
     // res.json({ userid: req.user.id, username: req.user.username });
@@ -116,9 +116,8 @@ router.post("/register", function (req, res) {
       if (err) {
         res.send("Already registereed");
       } else {
-        passport.authenticate("local")(req, res, function () {
+        passport.authenticate("login")(req, res, function () {
           res.send("1");
-
           const newstudent = new student_profile({
             email: req.body.username,
             name: req.body.name,
@@ -148,11 +147,10 @@ router.post("/login", function (req, res) {
 
   req.login(user, function (err) {
     if (err) {
-      res.redirect("/login");
+      res.send("/login");
     } else {
-      passport.authenticate("local")(req, res, function () {
-        var string = encodeURIComponent("logged in");
-
+      passport.authenticate("login")(req, res, function () {
+        console.log("in else");
         res
           .status(200)
           .json({ userid: req.user.id, username: req.user.username });
