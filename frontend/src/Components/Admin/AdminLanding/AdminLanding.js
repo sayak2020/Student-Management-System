@@ -9,6 +9,7 @@ function AdminLanding() {
       <Jumbotron>
         <h1 className="display-3">Hello, Admin!</h1>
       </Jumbotron>
+      <Button href="/admin_exam">Click here for exam</Button>
     </div>
   );
 }

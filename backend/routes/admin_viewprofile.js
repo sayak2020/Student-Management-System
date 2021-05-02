@@ -11,11 +11,13 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.get("/:stream", async (req, res) => {
+router.get("/stream/:stream", async (req, res) => {
+  let student;
   try {
-    const student = await student_profile.find({
+    student = await student_profile.find({
       "class.stream": req.params.stream,
     });
+    //  const name = student;
     res.json({ student });
   } catch (err) {
     res.json({ student: "student not found" });

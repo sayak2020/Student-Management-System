@@ -4,8 +4,8 @@ Content-Type: application/json
 
 {   
     
-    
-    "username": "USER",
+   
+    "username": "jonty@a.com",
     "password": "123"
 }
 
@@ -14,10 +14,10 @@ Content-Type: application/json
 POST http://localhost:9000/login/register
 Content-Type: application/json
 
-{   "name":"sayak",
-    "username": "USER",
+{   
+    "username": "jonty@a.com",
     "password": "123"
-}    
+}
 ###
 GET http://localhost:3000/login/logout
 
@@ -78,8 +78,7 @@ GET  http://localhost:9000/attendence/6071d0d388162110b40340eb
 GET  http://localhost:9000/admin_viewprofile
 
 ###
-GET  http://localhost:9000/admin_viewprofile/cse
-
+GET  http://localhost:9000/admin_viewprofile/CSE
 ###
 GET  http://localhost:9000/admin_leave/approved/chatterjeesayak20@gmail.com
 

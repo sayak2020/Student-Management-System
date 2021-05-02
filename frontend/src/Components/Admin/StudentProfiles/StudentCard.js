@@ -10,7 +10,7 @@ const StudentCard = (props) => {
           <div className="d-flex justify-content-between">
             <Link
               to={{
-                pathname: `admin_attendance/${props.email}`,
+                pathname: `../../admin_attendance/${props.email}`,
               }}
             >
               <Button className="float-right" color="default" size="sm">
@@ -19,7 +19,7 @@ const StudentCard = (props) => {
             </Link>
             <Link
               to={{
-                pathname: `approved_leave/${props.email}`,
+                pathname: `../../approved_leave/${props.email}`,
               }}
             >
               <Button className="float-right" color="default" size="sm">

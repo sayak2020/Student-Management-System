@@ -15,6 +15,12 @@ import AdminLanding from "./Components/Admin/AdminLanding/AdminLanding";
 import AdminAttendance from "./Components/Admin/AdminAttendance/AdminAttendance";
 import PendingLeave from "./Components/Admin/AdminLeave/AdminLeavePending";
 import ApprovedLeave from "./Components/Admin/AdminApproved/ApprovedLeave";
+import FilterEmail from "./Components/Admin/FilterNav/FilterEmail";
+import FilterStream from "./Components/Admin/FilterNav/FilterStream";
+import AdminLogin from "./Components/Admin/AdminLogin/AdminLogin";
+import AdminRegister from "./Components/Admin/AdminRegister/AdminRegister";
+import AdminExam from "./Components/Admin/Exam/Exam";
+import CreateExam from "./Components/Admin/Exam/CreateExam";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
@@ -31,6 +37,24 @@ class App extends Component {
 
             <Route path="/studentprofile">
               <StudentProfile />
+            </Route>
+            <Route path="/student_profile/email/:email">
+              <FilterEmail />
+            </Route>
+            <Route path="/admin_exam">
+              <AdminExam />
+            </Route>
+            <Route path="/create_exam">
+              <CreateExam />
+            </Route>
+            <Route path="/student_profile/stream/:stream">
+              <FilterStream />
+            </Route>
+            <Route path="/admin_login">
+              <AdminLogin />
+            </Route>
+            <Route path="/admin_register">
+              <AdminRegister />
             </Route>
             <Route path="/admin_attendance/:email">
               <AdminAttendance />

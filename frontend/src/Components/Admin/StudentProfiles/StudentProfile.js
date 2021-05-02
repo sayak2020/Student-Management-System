@@ -9,7 +9,7 @@ class StudentProfile extends Component {
   };
 
   componentDidMount() {
-    axios.get("http://localhost:9000/admin_viewprofile").then((response) => {
+    axios.get(" http://localhost:9000/admin_viewprofile").then((response) => {
       // console.log(response.data);
       this.setState({ users: response.data.student });
     });

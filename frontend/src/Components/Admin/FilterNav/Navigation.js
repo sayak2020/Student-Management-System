@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "react-bootstrap/Navbar";
+import { Link } from "react-router-dom";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Form from "react-bootstrap/Form";
 import FormControl from "react-bootstrap/FormControl";
@@ -8,6 +9,10 @@ import { Nav, Container } from "react-bootstrap";
 import { InputGroup, InputGroupAddon, InputGroupText, Input } from "reactstrap";
 
 function Navigation() {
+  const [stream, setStream] = useState([]);
+  const [email, setEmail] = useState([]);
+  console.log(stream);
+  console.log(email);
   return (
     <div>
       <Navbar bg="light" expand="lg">
@@ -19,15 +24,35 @@ function Navigation() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
             <InputGroup>
-              <Input placeholder="Stream" />
+              <Input
+                placeholder="Stream"
+                type="stream"
+                onChange={(e) => setStream(e.target.value)}
+              />
               <InputGroupAddon addonType="append">
-                <InputGroupText>Filter</InputGroupText>
+                <Link
+                  to={{
+                    pathname: `student_profile/stream/${stream}`,
+                  }}
+                >
+                  <Button>Filter</Button>
+                </Link>
               </InputGroupAddon>
             </InputGroup>
             <InputGroup>
-              <Input placeholder="Email" />
+              <Input
+                placeholder="Email"
+                type="email"
+                onChange={(e) => setEmail(e.target.value)}
+              />
               <InputGroupAddon addonType="append">
-                <InputGroupText>Filter</InputGroupText>
+                <Link
+                  to={{
+                    pathname: `student_profile/email/${email}`,
+                  }}
+                >
+                  <Button>Filter</Button>
+                </Link>
               </InputGroupAddon>
             </InputGroup>
           </Nav>

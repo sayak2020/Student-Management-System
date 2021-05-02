@@ -11,7 +11,7 @@ function Front() {
           <Button
             outline
             color="secondary"
-            href="/adminlanding"
+            href="/admin_login"
             className="get-started-btn scrollto"
           >
             Admin

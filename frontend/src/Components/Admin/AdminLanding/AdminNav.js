@@ -13,6 +13,7 @@ import {
   DropdownMenu,
   DropdownItem,
   NavbarText,
+  Button,
 } from "reactstrap";
 
 const AdminNav = (props) => {
@@ -48,6 +49,7 @@ const AdminNav = (props) => {
                 </DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown>
+            <Button href="/admin_register">Create New Admin</Button>
           </Nav>
         </Collapse>
       </Navbar>

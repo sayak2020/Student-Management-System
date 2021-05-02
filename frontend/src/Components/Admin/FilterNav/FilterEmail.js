@@ -1,62 +1,50 @@
-import React, { useState, useEffect, useMemo } from "react";
-import Cookies from "universal-cookie";
+import React from "react";
 import axios from "axios";
-import LeaveFilter from "./LeaveFilter";
-import Table from "./LeaveTable";
-import { Card, Button } from "reactstrap";
-import { useParams } from "react-router-dom";
+import { withRouter } from "react-router-dom";
+import StudentCard from "../StudentProfiles/StudentCard";
 
-function FilteredLeave() {
-  let { email } = useParams();
-  console.log({ email });
-  const [data, setData] = useState([]);
+class FilterEmail extends React.Component {
+  state = {
+    users: [],
+    message: "",
+  };
 
-  // Using useEffect to call the API once mounted and set the data
-  useEffect(() => {
-    (async () => {
-      const result = await axios(
-        `http://localhost:9000/admin_leave/approved/${email}`
+  componentDidMount() {
+    const email = this.props.match.params.email;
+    console.log({ email });
+    axios
+      .get(` http://localhost:9000/admin_viewprofile/email/${email}`)
+      .then((response) => {
+        if (response.data.student.length == 0) {
+          this.setState({ message: "No User Found" });
+        } else {
+          this.setState({ users: response.data.student });
+        }
+      });
+  }
+  render() {
+    const users = this.state.users.map((user) => {
+      return (
+        <StudentCard
+          key={user.id}
+          name={user.name}
+          email={user.email}
+          phone={user.phone}
+          street={user.address.street}
+          city={user.address.city}
+          stream={user.class.stream}
+          section={user.class.section}
+          year={user.class.year}
+          pin={user.address.pin}
+        />
       );
-      setData(result.data.leaveApplications);
-      console.log(result.data);
-    })();
-  }, []);
-
-  const columns = useMemo(() => [
-    {
-      Header: "LeaveId",
-      accessor: "leaveID",
-    },
-    {
-      Header: "Email",
-      accessor: "email",
-    },
-    {
-      Header: "From",
-      accessor: "from",
-    },
-    {
-      Header: "To",
-      accessor: "to",
-    },
-
-    {
-      Header: "Cause",
-      accessor: "cause",
-    },
-    {
-      Header: "Status",
-      accessor: "status",
-    },
-  ]);
-
-  return (
-    <div>
-      <Card className="card-profile shadow tableleave">
-        <Table data={data} columns={columns} />
-      </Card>
-    </div>
-  );
+    });
+    if (this.state.message) {
+      return this.state.message;
+    } else {
+      return <div>{users}</div>;
+    }
+  }
 }
 
-export default FilteredLeave;
+export default withRouter(FilterEmail);
