@@ -137,6 +137,18 @@ POST http://localhost:9000/test_respons/0
 Content-Type: application/json
 
 {   
-    "email":"sayaktrial",
-    "answers":["A","A","B"]
+    "email":"a",
+    "answers":["A","A","A"]
 }
+
+###
+GET  http://localhost:9000/test/0
+
+###
+GET  http://localhost:9000/test/endTest/0
+
+###
+GET  http://localhost:9000/test_respons/testID/0
+
+###
+GET  http://localhost:9000/test_respons/user/a

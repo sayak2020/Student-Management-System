@@ -12,6 +12,8 @@ autoIncrement = require("mongoose-auto-increment");
 mongoose.connect(process.env.DATABASE_URL, {
   useUnifiedTopology: true,
   useNewUrlParser: true,
+  useCreateIndex: true,
+  useFindAndModify: true,
 });
 const db = mongoose.connection;
 db.on("error", (error) => {
