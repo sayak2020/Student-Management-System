@@ -21,6 +21,12 @@ import AdminLogin from "./Components/Admin/AdminLogin/AdminLogin";
 import AdminRegister from "./Components/Admin/AdminRegister/AdminRegister";
 import AdminExam from "./Components/Admin/Exam/Exam";
 import CreateExam from "./Components/Admin/Exam/CreateExam";
+import Test from "./Components/Admin/Exam/Test";
+import ViewResult from "./Components/Admin/Exam/ViewResult";
+import FilterResult from "./Components/Admin/Exam/FilterResult";
+import EndedExam from "./Components/Admin/Exam/EndedExam";
+import ShowExam from "./Components/Student/Exam/ShowExam";
+import UserTest from "./Components/Student/Exam/UserTest";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
@@ -43,6 +49,24 @@ class App extends Component {
             </Route>
             <Route path="/admin_exam">
               <AdminExam />
+            </Route>
+            <Route path="/exam">
+              <ShowExam />
+            </Route>
+            <Route path="/user_test/:id">
+              <UserTest />
+            </Route>
+            <Route path="/view_result/:testID">
+              <ViewResult />
+            </Route>
+            <Route path="/filter_result/:email">
+              <FilterResult />
+            </Route>
+            <Route path="/test/:id">
+              <Test />
+            </Route>
+            <Route path="/ended_exam">
+              <EndedExam />
             </Route>
             <Route path="/create_exam">
               <CreateExam />

@@ -6,15 +6,13 @@ import {
   NavbarBrand,
   Nav,
   Container,
-  NavItem,
-  NavLink,
   UncontrolledDropdown,
   DropdownToggle,
   DropdownMenu,
   DropdownItem,
-  NavbarText,
   Button,
 } from "reactstrap";
+import "./AdminNav.css";
 
 const AdminNav = (props) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -31,7 +29,7 @@ const AdminNav = (props) => {
 
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
-          <Nav className="mr-auto" navbar>
+          <Nav className="mr-auto nav-admin" navbar>
             <UncontrolledDropdown nav inNavbar>
               <DropdownToggle nav caret>
                 View
@@ -44,12 +42,11 @@ const AdminNav = (props) => {
                 <DropdownItem href="/pendingleave">
                   View Pending Leave Application
                 </DropdownItem>
-                <DropdownItem href="/approvedleave">
-                  View Approved Leave Application
-                </DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown>
-            <Button href="/admin_register">Create New Admin</Button>
+            <Button className="btn-admin" href="/admin_register">
+              Create New Admin
+            </Button>
           </Nav>
         </Collapse>
       </Navbar>

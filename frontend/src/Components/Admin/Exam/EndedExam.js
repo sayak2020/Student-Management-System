@@ -1,15 +1,15 @@
-import React from "react";
+import React, { Component } from "react";
 import { Jumbotron, Button } from "reactstrap";
 import StatusCard from "./StatusCard";
 import axios from "axios";
 
-class Exam extends React.Component {
+class EndedExam extends Component {
   state = {
     details: [],
   };
 
   componentDidMount() {
-    axios.get("http://localhost:9000/test/test/live").then((response) => {
+    axios.get("http://localhost:9000/test/test/ended").then((response) => {
       console.log(response.data);
       this.setState({ details: response.data.testDetails });
     });
@@ -27,14 +27,12 @@ class Exam extends React.Component {
     return (
       <div>
         <Jumbotron>
-          <h1 className="display-3">Live Exam </h1>
+          <h1 className="display-3">Ended Exam </h1>
         </Jumbotron>
         {details}
-        <Button href="/create_exam">Create exam</Button>
-        <Button href="/ended_exam">Ended exam</Button>
       </div>
     );
   }
 }
 
-export default Exam;
+export default EndedExam;

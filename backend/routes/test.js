@@ -37,5 +37,21 @@ router.get("/endTest/:id", async (req, res) => {
     res.status(500).json({ message: err.message });
   }
 });
+router.get("/test/live", async (req, res) => {
+  try {
+    const testDetails = await test.find({ status: "live" });
+    res.json({ testDetails });
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+});
+router.get("/test/ended", async (req, res) => {
+  try {
+    const testDetails = await test.find({ status: "ended" });
+    res.json({ testDetails });
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+});
 
 module.exports = router;

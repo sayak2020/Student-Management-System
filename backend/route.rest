@@ -133,22 +133,25 @@ Content-Type: application/json
 }
 
 ###
-POST http://localhost:9000/test_respons/0
+POST http://localhost:9000/test_respons/31
 Content-Type: application/json
 
 {   
-    "email":"a",
-    "answers":["A","A","A"]
+    "email":"jonty@a.com",
+    "answers":["A","B","A"]
 }
 
 ###
-GET  http://localhost:9000/test/0
+GET  http://localhost:9000/test/31
 
 ###
-GET  http://localhost:9000/test/endTest/0
+GET  http://localhost:9000/test/endTest/31
 
 ###
-GET  http://localhost:9000/test_respons/testID/0
+GET  http://localhost:9000/test_respons/testID/31
 
 ###
-GET  http://localhost:9000/test_respons/user/a
+GET  http://localhost:9000/test_respons/user/jonty@a.com
+
+###
+GET http://localhost:9000/test/test/live

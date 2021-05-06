@@ -1,15 +1,12 @@
 import React, { useState, useEffect, useMemo } from "react";
-import Cookies from "universal-cookie";
 import axios from "axios";
-import { Card } from "reactstrap";
-
-import { Button } from "reactstrap";
+import { Jumbotron } from "reactstrap";
+import "./AdminLeave.css";
 
 function AdminLeavePending() {
   const [allData, setAllData] = useState([]);
-  const [message, setMessage] = useState("");
+  const [message, setMessage] = useState("Pending Leave Applications");
 
-  // Using useEffect to call the API once mounted and set the data
   useEffect(() => {
     (async () => {
       const result = await axios(
@@ -25,38 +22,9 @@ function AdminLeavePending() {
     })();
   }, []);
 
-  // const columns = useMemo(() => [
-  //   {
-  //     Header: "LeaveId",
-  //     accessor: "leaveID",
-  //   },
-  //   {
-  //     Header: "Email",
-  //     accessor: "email",
-  //   },
-  //   {
-  //     Header: "From",
-  //     accessor: "from",
-  //   },
-  //   {
-  //     Header: "To",
-  //     accessor: "to",
-  //   },
-
-  //   {
-  //     Header: "Cause",
-  //     accessor: "cause",
-  //   },
-  //   {
-  //     Header: "Status",
-  //     accessor: "status",
-  //   },
-  //   //<Button>Approve</Button>,
-  // ]);
-
   const renderHeader = () => {
-    if (message) {
-      return message;
+    if (message.localeCompare("Pending Leave Applications")) {
+      return "";
     } else {
       let headerElement = ["id", "email", "from", "to", "cause", "status"];
 
@@ -102,8 +70,10 @@ function AdminLeavePending() {
 
   return (
     <>
-      <h1 id="title">Pending Leave Application</h1>
-      <table id="employee">
+      <Jumbotron className="heading-leave">
+        <h1 className="display-3 ">{message}</h1>
+      </Jumbotron>
+      <table id="pending">
         <thead>
           <tr>{renderHeader()}</tr>
         </thead>

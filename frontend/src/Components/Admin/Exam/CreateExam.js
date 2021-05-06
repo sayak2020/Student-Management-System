@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Button, Form, Jumbotron, Input } from "reactstrap";
 import axios from "axios";
+import { withRouter } from "react-router-dom";
 
 class CreateExam extends Component {
   constructor() {
@@ -103,6 +104,7 @@ class CreateExam extends Component {
       })
       .then((response) => {
         console.log(response);
+
         // if (!response.data.errmsg) {
         //   console.log("successful signup");
         //   this.setState({
@@ -113,10 +115,12 @@ class CreateExam extends Component {
         //   console.log("username already taken");
         // }
       })
+
       .catch((error) => {
         // console.log("signup error: ");
         console.log(error.response);
       });
+    this.props.history.push("/admin_exam");
   }
 
   render() {
@@ -168,15 +172,20 @@ class CreateExam extends Component {
           required
         />,
         <br />,
-        <input
-          placeholder="Answer"
+
+        <select
           name={`ans`}
           onChange={(e) => this.onChange(i, e.target.name, e.target.value)}
-          required
-        />,
+        >
+          <option value="A">A</option>
+          <option value="B">B</option>
+          <option value="C">C</option>
+          <option value="D">D</option>
+        </select>,
         <br />,
         <input
           placeholder="Marks"
+          type="number"
           name={`marks`}
           onChange={(e) => this.onChange(i, e.target.name, e.target.value)}
           required
@@ -233,4 +242,4 @@ class CreateExam extends Component {
     );
   }
 }
-export default CreateExam;
+export default withRouter(CreateExam);

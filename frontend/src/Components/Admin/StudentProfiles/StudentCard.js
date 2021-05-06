@@ -1,11 +1,12 @@
 import React from "react";
 import { Card, Button, CardHeader, CardText, Row, Col } from "reactstrap";
 import { Link } from "react-router-dom";
+import "./StudentCard.css";
 
 const StudentCard = (props) => {
   return (
     <Row>
-      <Col sm="4">
+      <Col sm="4" className="profile-card">
         <CardHeader className="text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4">
           <div className="d-flex justify-content-between">
             <Link

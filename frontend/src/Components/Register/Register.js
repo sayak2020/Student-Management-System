@@ -68,22 +68,17 @@ class Register extends React.Component {
       return (
         <>
           <div className="registerpage">
-            <Col lg="6" md="8">
-              <Card className="bg-secondary-register shadow border-0">
-                <CardHeader className="bg-transparent pb-5">
-                  <div className="text-center text-muted mb-4">
-                    <small>Sign up with credentials</small>
+            <Col className="registercontainer" lg="6" md="8">
+              <Card className="bg-secondary-register shadow border-0-register">
+                <CardHeader className="bg-transparent-register pb-5-register">
+                  <div className="text-center-register text-muted-register mb-4-register">
+                    <medium>Sign up with credentials</medium>
                   </div>
                 </CardHeader>
                 <CardBody className="px-lg-5 py-lg-5">
                   <Form role="form" onSubmit={this.handleSubmit}>
                     <FormGroup>
-                      <InputGroup className="input-group-alternative mb-3">
-                        <InputGroupAddon addonType="prepend">
-                          <InputGroupText>
-                            <i className="ni ni-email-83" />
-                          </InputGroupText>
-                        </InputGroupAddon>
+                      <InputGroup className="input-group-alternative-register mb-3-register">
                         <Input
                           placeholder="Name"
                           type="name"
@@ -98,12 +93,7 @@ class Register extends React.Component {
                       </InputGroup>
                     </FormGroup>
                     <FormGroup>
-                      <InputGroup className="input-group-alternative mb-3">
-                        <InputGroupAddon addonType="prepend">
-                          <InputGroupText>
-                            <i className="ni ni-email-83" />
-                          </InputGroupText>
-                        </InputGroupAddon>
+                      <InputGroup className="input-group-alternative-register mb-3-register">
                         <Input
                           placeholder="Email"
                           type="email"
@@ -118,12 +108,7 @@ class Register extends React.Component {
                       </InputGroup>
                     </FormGroup>
                     <FormGroup>
-                      <InputGroup className="input-group-alternative">
-                        <InputGroupAddon addonType="prepend">
-                          <InputGroupText>
-                            <i className="ni ni-lock-circle-open" />
-                          </InputGroupText>
-                        </InputGroupAddon>
+                      <InputGroup className="input-group-alternative-register">
                         <Input
                           placeholder="Password"
                           type="password"

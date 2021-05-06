@@ -1,15 +1,15 @@
-import React from "react";
+import React, { Component } from "react";
 import { Jumbotron, Button } from "reactstrap";
-import StatusCard from "./StatusCard";
+import UserExamCard from "./UserExamCard";
 import axios from "axios";
 
-class Exam extends React.Component {
+class ShowExam extends Component {
   state = {
     details: [],
   };
 
   componentDidMount() {
-    axios.get("http://localhost:9000/test/test/live").then((response) => {
+    axios.get("http://localhost:9000/test/test/ended").then((response) => {
       console.log(response.data);
       this.setState({ details: response.data.testDetails });
     });
@@ -17,7 +17,7 @@ class Exam extends React.Component {
   render() {
     const details = this.state.details.map((detail) => {
       return (
-        <StatusCard
+        <UserExamCard
           name={detail.name}
           status={detail.status}
           id={detail.testID}
@@ -30,11 +30,9 @@ class Exam extends React.Component {
           <h1 className="display-3">Live Exam </h1>
         </Jumbotron>
         {details}
-        <Button href="/create_exam">Create exam</Button>
-        <Button href="/ended_exam">Ended exam</Button>
       </div>
     );
   }
 }
 
-export default Exam;
+export default ShowExam;
