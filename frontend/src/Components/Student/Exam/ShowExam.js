@@ -9,7 +9,7 @@ class ShowExam extends Component {
   };
 
   componentDidMount() {
-    axios.get("http://localhost:9000/test/test/ended").then((response) => {
+    axios.get("http://localhost:9000/test/test/live").then((response) => {
       console.log(response.data);
       this.setState({ details: response.data.testDetails });
     });

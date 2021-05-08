@@ -12,10 +12,7 @@ function ResultCard(props) {
               <i className="ni business_briefcase-24 mr-2" />
               Email : {props.studentemail}
             </div>
-            <div className="h5 mt-4">
-              <i className="ni business_briefcase-24 mr-2" />
-              Answer: {props.answer}
-            </div>
+
             <div className="h5 mt-4">
               <i className="ni business_briefcase-24 mr-2" />
               Total Marks: {props.totalmarks}

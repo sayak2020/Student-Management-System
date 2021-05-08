@@ -27,7 +27,6 @@ class ViewResult extends Component {
           obtained={detail.obtainedmarks}
           studentemail={detail.student_email}
           totalmarks={detail.totalmarks}
-          answer={detail.answer.map((answer) => answer)}
         />
       );
     });
