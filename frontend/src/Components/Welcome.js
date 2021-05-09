@@ -28,6 +28,7 @@ class Welcome extends React.Component {
           <h1 className="display-3">Hello, {this.state.user.name}!</h1>
         </Jumbotron>
         <Button href="/exam">Give Exam</Button>
+        <Button href="/notes">Notes</Button>
       </div>
     );
   }

@@ -4,6 +4,7 @@ const cors = require("cors");
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
+const path = require("path");
 
 const session = require("express-session");
 const passport = require("passport");
@@ -67,10 +68,18 @@ app.use("/test", test);
 const test_respons = require("./routes/test_respons");
 app.use("/test_respons", test_respons);
 
+app.use(express.static(path.join(__dirname, "..", "build")));
 
-const file_upload = require("./routes/file_upload");
+const file_upload = require("./routes/file");
 app.use("/file_upload", file_upload);
+// const fileRoute = require("./routes/file");
+
+// app.use(fileRoute);
+
+app.get("/file_upload/upload", (req, res) => {
+  res.sendFile(path.join(__dirname, "..", "build", "index.html"));
+});
 
 app.listen(9000, () => {
-  console.log("Server startded at 9000");
+  console.log("Server started at 9000");
 });

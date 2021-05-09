@@ -137,12 +137,12 @@ POST http://localhost:9000/test_respons/31
 Content-Type: application/json
 
 {   
-    "email":"jonty@a.com",
+    "email":"jonty",
     "answers":["A","B","A"]
 }
 
 ###
-GET  http://localhost:9000/test/31
+GET  http://localhost:9000/test/32
 
 ###
 GET  http://localhost:9000/test/endTest/31
@@ -151,7 +151,22 @@ GET  http://localhost:9000/test/endTest/31
 GET  http://localhost:9000/test_respons/testID/31
 
 ###
-GET  http://localhost:9000/test_respons/user/jonty@a.com
+GET  http://localhost:9000/test_respons/user/jonty
 
 ###
 GET http://localhost:9000/test/test/live
+
+###
+GET http://localhost:9000/test/test/ended
+
+###
+GET  http://localhost:9000/file_upload
+
+###
+GET  http://localhost:9000/file_upload/getAllFiles
+
+
+
+
+
+      
