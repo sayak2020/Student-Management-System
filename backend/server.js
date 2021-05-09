@@ -67,6 +67,10 @@ app.use("/test", test);
 const test_respons = require("./routes/test_respons");
 app.use("/test_respons", test_respons);
 
+
+const file_upload = require("./routes/file_upload");
+app.use("/file_upload", file_upload);
+
 app.listen(9000, () => {
   console.log("Server startded at 9000");
 });

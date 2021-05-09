@@ -31,7 +31,7 @@ class Trialsystem extends Component {
 
     // Request made to the backend api
     // Send formData object
-    axios.post("api/uploadfile", formData);
+    axios.post("http://localhost:9000/file_upload/notes", formData);
   };
 
   // File content to be displayed after
@@ -68,7 +68,7 @@ class Trialsystem extends Component {
         <h1>GeeksforGeeks</h1>
         <h3>File Upload using React!</h3>
         <div>
-          <input type="file" onChange={this.onFileChange} />
+          <input type="file" name="file" id="file"onChange={this.onFileChange} />
           <button onClick={this.onFileUpload}>Upload!</button>
         </div>
         {this.fileData()}
