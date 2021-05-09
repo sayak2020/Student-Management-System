@@ -27,6 +27,7 @@ import FilterResult from "./Components/Admin/Exam/FilterResult";
 import EndedExam from "./Components/Admin/Exam/EndedExam";
 import ShowExam from "./Components/Student/Exam/ShowExam";
 import UserTest from "./Components/Student/Exam/UserTest";
+import Trialsystem from "./Components/Student/Notes/Trialsystem";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
@@ -43,6 +44,9 @@ class App extends Component {
 
             <Route path="/studentprofile">
               <StudentProfile />
+            </Route>
+            <Route path="/notes">
+              <Trialsystem />
             </Route>
             <Route path="/student_profile/email/:email">
               <FilterEmail />
