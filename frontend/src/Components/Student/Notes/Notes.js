@@ -88,7 +88,7 @@ const Notes = (props) => {
                 type="text"
                 name="title"
                 value={state.title || ""}
-                placeholder="Enter title"
+                placeholder="Enter Filename"
                 onChange={handleInputChange}
               />
             </Form.Group>
@@ -101,7 +101,7 @@ const Notes = (props) => {
                 type="text"
                 name="description"
                 value={state.description || ""}
-                placeholder="Enter description"
+                placeholder="Enter Subject Name"
                 onChange={handleInputChange}
               />
             </Form.Group>

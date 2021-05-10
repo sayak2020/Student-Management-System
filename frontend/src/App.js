@@ -29,6 +29,7 @@ import ShowExam from "./Components/Student/Exam/ShowExam";
 import UserTest from "./Components/Student/Exam/UserTest";
 import Notes from "./Components/Student/Notes/Notes";
 import Header from "./Components/Student/Notes/Header";
+import FilesList from "./Components/Student/Notes/FilesList";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
@@ -47,8 +48,10 @@ class App extends Component {
               <StudentProfile />
             </Route>
             <Route path="/notes">
-              <Header />
               <Notes />
+            </Route>
+            <Route path="/fileslist">
+              <FilesList />
             </Route>
             <Route path="/student_profile/email/:email">
               <FilterEmail />

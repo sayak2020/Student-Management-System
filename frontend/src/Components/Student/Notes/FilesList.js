@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import download from "downloadjs";
 import axios from "axios";
+import { Button } from "reactstrap";
 
 const FilesList = () => {
   const [filesList, setFilesList] = useState([]);
@@ -9,7 +10,9 @@ const FilesList = () => {
   useEffect(() => {
     const getFilesList = async () => {
       try {
-        const { data } = await axios.get(`${API_URL}/getAllFiles`);
+        const { data } = await axios.get(
+          `http://localhost:9000/file_upload/getAllFiles`
+        );
         setErrorMsg("");
         setFilesList(data);
       } catch (error) {
@@ -79,6 +82,7 @@ const FilesList = () => {
           )}
         </tbody>
       </table>
+      <Button href="/notes">Add new</Button>
     </div>
   );
 };

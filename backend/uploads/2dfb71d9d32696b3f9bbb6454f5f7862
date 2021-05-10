@@ -1,0 +1,43 @@
+import.java.util.*;
+class Excep extends Exception
+{
+public String toString()
+{
+return "negative number";
+}
+}
+class A
+{
+void check(int a)throws Excep
+{
+if(a>0)
+{
+for(int i=1;i<=a;i++)
+{
+f=f*i;
+}
+System.out.println("factorial is="+f);
+}
+else
+{
+throw new Excep();
+}
+}
+}
+public static void main(String args[])
+{
+int num;
+Scanner sc=new Scanner(System.in);
+System.out.println("Enter any number");
+num=sc.nextInt();
+A a=new A();
+try
+{
+a.check(num);
+}
+catch(Exception e)
+{
+System.out.println("Exception handeled"+e);
+}
+}
+}
