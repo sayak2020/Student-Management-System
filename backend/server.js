@@ -76,9 +76,9 @@ app.use("/file_upload", file_upload);
 
 // app.use(fileRoute);
 
-app.get("/file_upload/upload", (req, res) => {
-  res.sendFile(path.join(__dirname, "..", "build", "index.html"));
-});
+// app.get("/file_upload/upload", (req, res) => {
+//   res.sendFile(path.join(__dirname, "..", "build", "index.html"));
+// });
 
 app.listen(9000, () => {
   console.log("Server started at 9000");

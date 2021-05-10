@@ -3,11 +3,12 @@ const express = require("express");
 const multer = require("multer");
 const File = require("../models/file");
 const router = express.Router();
+const upload = multer({ dest: "uploads/" });
 
-const upload = multer({
+const storage = multer({
   storage: multer.diskStorage({
     destination(req, file, cb) {
-      cb(null, "./files");
+      cb(null, "uploads");
     },
     filename(req, file, cb) {
       cb(null, `${new Date().getTime()}_${file.originalname}`);
@@ -32,9 +33,13 @@ const upload = multer({
   },
 });
 
+//var upload = multer({ storage });
+
 // router.get("*", (req, res) => {
 //   res.sendFile(path.join(__dirname, "..", "build", "index.html"));
 // });
+
+
 
 router.post(
   "/upload",
@@ -49,7 +54,8 @@ router.post(
         file_path: path,
         file_mimetype: mimetype,
       });
-      await file.save();
+      let c = await file.save();
+      console.log(c)
       res.send("file uploaded successfully.");
     } catch (error) {
       res.status(400).send("Error while uploading file. Try again later.");
@@ -57,7 +63,7 @@ router.post(
   },
   (error, req, res, next) => {
     if (error) {
-      res.status(500).send(error.message);
+      res.status(500).send(error.message+" in error");
     }
   }
 );
