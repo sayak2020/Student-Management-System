@@ -30,13 +30,49 @@ import UserTest from "./Components/Student/Exam/UserTest";
 import Notes from "./Components/Student/Notes/Notes";
 import Header from "./Components/Student/Notes/Header";
 import FilesList from "./Components/Student/Notes/FilesList";
+import axios from "axios"
+import Cookies from "universal-cookie"
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+     auth : "true"
+    };
+    //this.auth1 = this.auth1.bind(this);
+  }
+  componentDidMount() {
+
+  const auth1 = async () => {
+    try {
+      //const res = await axios.get('http://localhost:9000/authenticate');
+      const cookie = new Cookies();
+      let c = cookie.get("userid")
+      console.log(c);
+      let c1 = 1
+      if(c1 == 1){
+        this.state.auth = "false"
+        console.log(this.state.auth);
+      }
+      console.log(this.state.auth);
+    } catch (e) {
+      console.log(e );
+    }
+  };
+  
+  auth1();
+ 
+}
+  
   render() {
-    return (
+    let c1 = 1
+    //this.state.auth == "true"
+    if(c1==0){
+      return (
+      //{this.auth1};
       <Router>
         <div className="App">
           <Switch>
@@ -63,7 +99,7 @@ class App extends Component {
             </Route>
             <Route path="/exam">
               <ShowExam />
-            </Route>
+            </Route>console.log(this.state.auth);
             <Route path="/user_test/:id">
               <UserTest />
             </Route>
@@ -153,8 +189,16 @@ class App extends Component {
           </Switch>
         </div>
       </Router>
+    
     );
+    }
+    else{
+     return(
+       <h1> nothing </h1>
+     )
+    }
   }
+  
 }
 
 export default App;

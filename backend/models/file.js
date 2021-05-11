@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 
 const fileSchema = mongoose.Schema(
   {
+    studentID : String,
     title: {
       type: String,
       required: true,

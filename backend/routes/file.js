@@ -42,7 +42,7 @@ const storage = multer({
 
 
 router.post(
-  "/upload",
+  "/upload/:id",
   upload.single("file"),
   async (req, res) => {
     try {
@@ -51,6 +51,7 @@ router.post(
       const file = new File({
         title,
         description,
+        studentID : req.params.id,
         file_path: path,
         file_mimetype: mimetype,
       });
@@ -68,9 +69,9 @@ router.post(
   }
 );
 
-router.get("/getAllFiles", async (req, res) => {
+router.get("/getAllFiles/:id", async (req, res) => {
   try {
-    const files = await File.find({});
+    const files = await File.find({studentID : req.params.id});
     const sortedByCreationDate = files.sort(
       (a, b) => b.createdAt - a.createdAt
     );

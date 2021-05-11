@@ -3,7 +3,7 @@ const router = express.Router();
 const test = require("../models/test");
 const test_respons = require("../models/test_respons");
 
-router.post("/:id", async (req, res) => {
+router.post("/:userID/:email/:id", async (req, res) => {
   const testdetails = await test.findOne({ testID: req.params.id });
   const ques = testdetails.questions;
   let marks = [],
@@ -36,8 +36,8 @@ router.post("/:id", async (req, res) => {
     testID: req.params.id,
     name: testdetails.name,
     subject: testdetails.subject,
-    student_email: req.body.email,
-    studentID: "trial",
+    student_email: req.params.email,
+    studentID: req.params.userID,
     answer: req.body.answers,
     totalmarks: total,
 

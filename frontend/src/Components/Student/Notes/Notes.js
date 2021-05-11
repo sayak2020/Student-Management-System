@@ -3,6 +3,8 @@ import Dropzone from "react-dropzone";
 import axios from "axios";
 import { Form, Row, Col, Button } from "react-bootstrap";
 import "./Notes.css";
+import Cookies from "universal-cookie"
+
 // import { API_URL } from "../utils/constants";
 
 const Notes = (props) => {
@@ -48,6 +50,7 @@ const Notes = (props) => {
     event.preventDefault();
 
     try {
+      const cookies = new Cookies();
       const { title, description } = state;
       if (title.trim() !== "" && description.trim() !== "") {
         if (file) {
@@ -58,7 +61,7 @@ const Notes = (props) => {
 
           setErrorMsg("");
           await axios.post(
-            `http://localhost:9000/file_upload/upload`,
+            `http://localhost:9000/file_upload/upload/${cookies.get("userid")}`,
             formData,
             {
               headers: {

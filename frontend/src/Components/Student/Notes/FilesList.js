@@ -2,17 +2,20 @@ import React, { useState, useEffect } from "react";
 import download from "downloadjs";
 import axios from "axios";
 import { Button } from "reactstrap";
+import Cookies from "universal-cookie"
 import "./FilesList.css";
+
 
 const FilesList = () => {
   const [filesList, setFilesList] = useState([]);
   const [errorMsg, setErrorMsg] = useState("");
 
   useEffect(() => {
+    const cookies = new Cookies();
     const getFilesList = async () => {
       try {
         const { data } = await axios.get(
-          `http://localhost:9000/file_upload/getAllFiles`
+          `http://localhost:9000/file_upload/getAllFiles/${cookies.get("userid")}`
         );
         setErrorMsg("");
         setFilesList(data);
