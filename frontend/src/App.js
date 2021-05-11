@@ -48,9 +48,11 @@ class App extends Component {
               <StudentProfile />
             </Route>
             <Route path="/notes">
+              <Header />
               <Notes />
             </Route>
             <Route path="/fileslist">
+              <Header />
               <FilesList />
             </Route>
             <Route path="/student_profile/email/:email">

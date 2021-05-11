@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import download from "downloadjs";
 import axios from "axios";
 import { Button } from "reactstrap";
+import "./FilesList.css";
 
 const FilesList = () => {
   const [filesList, setFilesList] = useState([]);
@@ -45,7 +46,7 @@ const FilesList = () => {
   return (
     <div className="files-container">
       {errorMsg && <p className="errorMsg">{errorMsg}</p>}
-      <table className="files-table">
+      <table id="files-table">
         <thead>
           <tr>
             <th>Title</th>

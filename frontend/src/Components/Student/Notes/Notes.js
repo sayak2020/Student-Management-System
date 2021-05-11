@@ -2,6 +2,7 @@ import React, { useState, useRef } from "react";
 import Dropzone from "react-dropzone";
 import axios from "axios";
 import { Form, Row, Col, Button } from "react-bootstrap";
+import "./Notes.css";
 // import { API_URL } from "../utils/constants";
 
 const Notes = (props) => {
@@ -65,7 +66,7 @@ const Notes = (props) => {
               },
             }
           );
-          props.history.push("/list");
+          props.history.push("/fileslist");
         } else {
           setErrorMsg("Please select a file to add.");
         }
@@ -75,6 +76,7 @@ const Notes = (props) => {
     } catch (error) {
       error.response && setErrorMsg(error.response.data);
     }
+    window.location.reload(false);
   };
 
   return (
@@ -125,21 +127,6 @@ const Notes = (props) => {
               </div>
             )}
           </Dropzone>
-          {previewSrc ? (
-            isPreviewAvailable ? (
-              <div className="image-preview">
-                <img className="preview-image" src={previewSrc} alt="Preview" />
-              </div>
-            ) : (
-              <div className="preview-message">
-                <p>No preview available for this file</p>
-              </div>
-            )
-          ) : (
-            <div className="preview-message">
-              <p>Image preview will be shown here after selection</p>
-            </div>
-          )}
         </div>
         <Button variant="primary" type="submit">
           Submit

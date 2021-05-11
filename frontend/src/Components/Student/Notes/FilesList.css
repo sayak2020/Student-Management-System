@@ -1,0 +1,70 @@
+.files-container {
+  width: 98%;
+  overflow-x: auto;
+}
+
+#files-table {
+  width: 100%;
+  border: 1px solid #ccc;
+  border-collapse: collapse;
+}
+
+#files-table tr,
+#files-table td,
+#files-table th {
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+#files-table .file-title {
+  width: 20%;
+}
+
+#files-table .file-description {
+  width: 70%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  letter-spacing: 1px;
+  padding: 10px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 30px;
+}
+
+h1,
+.main-content {
+  margin-bottom: 20px;
+}
+
+.active {
+  font-weight: 600;
+  color: #0e7bf1;
+}
+
+.errorMsg {
+  color: #f21e08;
+  background: #fff0f0;
+  padding: 1rem;
+}
+
+/* .header {
+  margin-bottom: 20px;
+
+  nav {
+    display: flex;
+    justify-content: flex-start;
+
+    a {
+      margin: 10px;
+    }
+  }
+} */
