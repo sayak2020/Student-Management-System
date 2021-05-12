@@ -4,6 +4,7 @@ import axios from "axios";
 import { Card } from "reactstrap";
 import LeaveTable from "./LeaveTable";
 import "./LeaveHistory.css";
+import Navigation from "../../Navigation";
 
 function LeaveHistory() {
   const [data, setData] = useState([]);
@@ -42,6 +43,7 @@ function LeaveHistory() {
 
   return (
     <div>
+      <Navigation />
       <Card className="card-profile shadow tableleave">
         <LeaveTable data={data} columns={columns} />
       </Card>

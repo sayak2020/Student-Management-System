@@ -4,6 +4,7 @@ import axios from "axios";
 import Table from "./Table";
 import { Card } from "reactstrap";
 import "./CheckAttendance.css";
+import Navigation from "../Navigation";
 
 function CheckAttendance() {
   const [data, setData] = useState([]);
@@ -38,6 +39,7 @@ function CheckAttendance() {
 
   return (
     <div>
+      <Navigation />
       <Card className="card-profile shadow tableattend">
         <Table data={data} columns={columns} />
       </Card>

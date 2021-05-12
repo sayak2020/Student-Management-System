@@ -23,17 +23,17 @@
 #files-table .file-description {
   width: 70%;
 }
-
+/* 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-
+} */
+/* 
 body {
   letter-spacing: 1px;
   padding: 10px;
-}
+} */
 
 h1 {
   text-align: center;

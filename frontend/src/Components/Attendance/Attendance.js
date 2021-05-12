@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import styles from "./Attendance.css";
+import Navigation from "../Navigation";
 import Cookies from "universal-cookie";
 
 import {
@@ -42,6 +43,7 @@ class Attendance extends Component {
   render() {
     return (
       <div>
+        <Navigation />
         <form onSubmit={this.postDataHandler}>
           <Card className="card-profile shadow attendance">
             <Row className="justify-content-center">

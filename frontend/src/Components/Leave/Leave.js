@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import "./Leave.css";
 import Cookies from "universal-cookie";
+import Navigation from "../Navigation";
 import {
   Button,
   Card,
@@ -44,6 +45,7 @@ class Leave extends Component {
   render() {
     return (
       <div>
+        <Navigation />
         <Card className="card-profile shadow attendance">
           <Row className="justify-content-center">
             <Col className="order-lg-2" lg="3"></Col>

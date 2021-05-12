@@ -3,7 +3,8 @@ import Dropzone from "react-dropzone";
 import axios from "axios";
 import { Form, Row, Col, Button } from "react-bootstrap";
 import "./Notes.css";
-import Cookies from "universal-cookie"
+import Cookies from "universal-cookie";
+import Header from "./Header";
 
 // import { API_URL } from "../utils/constants";
 
@@ -84,6 +85,7 @@ const Notes = (props) => {
 
   return (
     <React.Fragment>
+      <Header />
       <Form className="search-form" onSubmit={handleOnSubmit}>
         {errorMsg && <p className="errorMsg">{errorMsg}</p>}
         <Row>

@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import download from "downloadjs";
 import axios from "axios";
 import { Button } from "reactstrap";
-import Cookies from "universal-cookie"
+import Cookies from "universal-cookie";
 import "./FilesList.css";
-
+import Header from "./Header";
 
 const FilesList = () => {
   const [filesList, setFilesList] = useState([]);
@@ -15,7 +15,9 @@ const FilesList = () => {
     const getFilesList = async () => {
       try {
         const { data } = await axios.get(
-          `http://localhost:9000/file_upload/getAllFiles/${cookies.get("userid")}`
+          `http://localhost:9000/file_upload/getAllFiles/${cookies.get(
+            "userid"
+          )}`
         );
         setErrorMsg("");
         setFilesList(data);
@@ -48,6 +50,7 @@ const FilesList = () => {
 
   return (
     <div className="files-container">
+      <Header />
       {errorMsg && <p className="errorMsg">{errorMsg}</p>}
       <table id="files-table">
         <thead>

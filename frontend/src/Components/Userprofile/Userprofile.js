@@ -36,6 +36,7 @@ import {
   Row,
   Col,
 } from "reactstrap";
+import Navigation from "../Navigation";
 import Showprofile from "./Showprofile";
 
 const cookies = new Cookies();
@@ -66,6 +67,7 @@ class Userprofile extends Component {
   render() {
     return (
       <div>
+        <Navigation />
         <Showprofile
           name={this.state.user.name}
           phone={this.state.user.phone}

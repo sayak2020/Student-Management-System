@@ -33,12 +33,11 @@ import {
   Row,
   Col,
 } from "reactstrap";
+import Navigation from "../Navigation";
 // core components
 //import UserHeader from "../Headers/UserHeader";
 
 class Profile extends Component {
-
-
   state = {
     name: "",
     phone: "",
@@ -71,37 +70,29 @@ class Profile extends Component {
   }
 
   postDataHandler = () => {
-    if(!this.state.name)
-    {
-      this.state.name= this.state.user.name
+    if (!this.state.name) {
+      this.state.name = this.state.user.name;
     }
-    if(!this.state.phone)
-    {
-      this.state.phone= this.state.user.phone
+    if (!this.state.phone) {
+      this.state.phone = this.state.user.phone;
     }
-    if(!this.state.stream)
-    {
-      this.state.stream= this.state.userclass.stream
+    if (!this.state.stream) {
+      this.state.stream = this.state.userclass.stream;
     }
-    if(!this.state.section)
-    {
-      this.state.section= this.state.userclass.section
+    if (!this.state.section) {
+      this.state.section = this.state.userclass.section;
     }
-    if(!this.state.year)
-    {
-      this.state.year= this.state.userclass.year
+    if (!this.state.year) {
+      this.state.year = this.state.userclass.year;
     }
-    if(!this.state.street)
-    {
-      this.state.street= this.state.useraddress.street
+    if (!this.state.street) {
+      this.state.street = this.state.useraddress.street;
     }
-    if(!this.state.city)
-    {
-      this.state.city= this.state.useraddress.city
+    if (!this.state.city) {
+      this.state.city = this.state.useraddress.city;
     }
-    if(!this.state.pin)
-    {
-      this.state.pin= this.state.useraddress.pin
+    if (!this.state.pin) {
+      this.state.pin = this.state.useraddress.pin;
     }
     const patch = {
       name: this.state.name,
@@ -129,6 +120,7 @@ class Profile extends Component {
   render() {
     return (
       <>
+        <Navigation />
         {/* Page content */}
         <Container className="mt--7 header-update">
           <Col className="order-update">
@@ -161,7 +153,7 @@ class Profile extends Component {
                             className="form-control-alternative"
                             id="input-username"
                             type="text"
-                            defaultValue ={this.state.user.name}
+                            defaultValue={this.state.user.name}
                             onChange={(event) =>
                               this.setState({ name: event.target.value })
                             }
@@ -178,7 +170,7 @@ class Profile extends Component {
                             className="form-control-alternative"
                             id="input-number"
                             type="number"
-                            defaultValue ={this.state.user.phone}
+                            defaultValue={this.state.user.phone}
                             onChange={(event) =>
                               this.setState({ phone: event.target.value })
                             }
@@ -205,7 +197,7 @@ class Profile extends Component {
                             className="form-control-alternative"
                             id="input-stream"
                             type="text"
-                            defaultValue ={this.state.userclass.stream}
+                            defaultValue={this.state.userclass.stream}
                             onChange={(event) =>
                               this.setState({ stream: event.target.value })
                             }
@@ -225,7 +217,7 @@ class Profile extends Component {
                             className="form-control-alternative"
                             id="input-section"
                             type="text"
-                            defaultValue ={this.state.userclass.section}
+                            defaultValue={this.state.userclass.section}
                             onChange={(event) =>
                               this.setState({ section: event.target.value })
                             }
@@ -245,7 +237,7 @@ class Profile extends Component {
                             className="form-control-alternative"
                             id="input-year"
                             type="year"
-                            defaultValue ={this.state.userclass.year}
+                            defaultValue={this.state.userclass.year}
                             onChange={(event) =>
                               this.setState({ year: event.target.value })
                             }
@@ -268,7 +260,7 @@ class Profile extends Component {
                             id="input-city"
                             type="text"
                             //default= null
-                            defaultValue ={this.state.useraddress.city}
+                            defaultValue={this.state.useraddress.city}
                             onChange={(event) =>
                               this.setState({ city: event.target.value })
                             }
@@ -288,7 +280,7 @@ class Profile extends Component {
                             className="form-control-alternative"
                             id="input-street"
                             type="text"
-                            defaultValue ={this.state.useraddress.street}
+                            defaultValue={this.state.useraddress.street}
                             onChange={(event) =>
                               this.setState({ street: event.target.value })
                             }
@@ -308,7 +300,7 @@ class Profile extends Component {
                             className="form-control-alternative"
                             id="input-postal-code"
                             type="number"
-                            defaultValue ={this.state.useraddress.pin}
+                            defaultValue={this.state.useraddress.pin}
                             onChange={(event) =>
                               this.setState({ pin: event.target.value })
                             }
