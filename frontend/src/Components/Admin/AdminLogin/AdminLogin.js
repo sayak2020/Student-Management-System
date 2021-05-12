@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
 import "./AdminLogin.css";
+import Cookies from "universal-cookie"
 
 import {
   Button,
@@ -36,9 +37,11 @@ class AdminLogin extends React.Component {
         password: this.state.password,
       })
       .then((response) => {
+        const cookies = new Cookies();
         console.log("adminlogin response: ");
         console.log(response);
-        console.log(response.data);
+        console.log(response.data.adminID);
+        cookies.set("adminID", response.data.adminID, { path: "/" });
 
         if (response.status === 200) {
           this.setState({

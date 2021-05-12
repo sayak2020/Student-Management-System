@@ -51,7 +51,8 @@ router.post("/a/a_login", function (req, res) {
       res.json({ message: err.message });
     } else {
       passport.authenticate("admin")(req, res, function () {
-        res.status(200).json({ message: "Admin Loggedin" });
+        console.log(req.user.id)
+        res.status(200).json({ adminID : req.user.id});
       });
     }
   });
@@ -59,6 +60,7 @@ router.post("/a/a_login", function (req, res) {
 
 router.get("/a/a_logout", function (req, res) {
   req.logout();
+  res.clearCookie("adminID");
   res.redirect("http://localhost:3000/");
 });
 
