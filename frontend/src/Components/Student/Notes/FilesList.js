@@ -4,7 +4,8 @@ import axios from "axios";
 import { Button } from "reactstrap";
 import Cookies from "universal-cookie";
 import "./FilesList.css";
-import Header from "./Header";
+import { Jumbotron } from "reactstrap";
+import Navigation from "../../Navigation";
 
 const FilesList = () => {
   const [filesList, setFilesList] = useState([]);
@@ -50,7 +51,10 @@ const FilesList = () => {
 
   return (
     <div className="files-container">
-      <Header />
+      <Navigation />
+      <Jumbotron>
+        <h1 className="display-3 ">Notes</h1>
+      </Jumbotron>
       {errorMsg && <p className="errorMsg">{errorMsg}</p>}
       <table id="files-table">
         <thead>

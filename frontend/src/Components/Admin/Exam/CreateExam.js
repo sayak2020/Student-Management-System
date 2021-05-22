@@ -1,7 +1,10 @@
 import React, { Component } from "react";
-import { Button, Form, Jumbotron, Input } from "reactstrap";
+import { Button, Form, Jumbotron, Input, Card, Container } from "reactstrap";
 import axios from "axios";
 import { withRouter } from "react-router-dom";
+import "./CreateExam.css";
+import AddCircleOutlineOutlinedIcon from "@material-ui/icons/AddCircleOutlineOutlined";
+import AdminNav from "../AdminLanding/AdminNav";
 
 class CreateExam extends Component {
   constructor() {
@@ -94,8 +97,6 @@ class CreateExam extends Component {
     console.log(this.state.questions);
     event.preventDefault();
 
-    // console.log(this.state);
-
     axios
       .post("http://localhost:9000/test", {
         name: this.state.name,
@@ -104,23 +105,13 @@ class CreateExam extends Component {
       })
       .then((response) => {
         console.log(response);
-
-        // if (!response.data.errmsg) {
-        //   console.log("successful signup");
-        //   this.setState({
-        //     //redirect to login page
-        //     redirectTo: "/login",
-        //   });
-        // } else {
-        //   console.log("username already taken");
-        // }
       })
 
       .catch((error) => {
         // console.log("signup error: ");
         console.log(error.response);
       });
-    this.props.history.push("/admin_exam");
+    window.location.replace("/adminlanding");
   }
 
   render() {
@@ -129,115 +120,141 @@ class CreateExam extends Component {
 
     for (let i = 0; i < this.state.numQuestion; i++) {
       inputs.push(
-        <input
-          placeholder="Question name"
-          name={`question`}
-          onChange={(e) => this.onChange(i, e.target.name, e.target.value)}
-          required
-        />,
-        <br />,
-        <input
-          placeholder="Option A"
-          name={`A`}
-          onChange={(e) =>
-            this.onChangeOption(i, e.target.name, e.target.value)
-          }
-          required
-        />,
-
-        <input
-          placeholder="Option B"
-          name={`B`}
-          onChange={(e) =>
-            this.onChangeOption(i, e.target.name, e.target.value)
-          }
-          required
-        />,
-
-        <input
-          placeholder="Option C"
-          name={`C`}
-          onChange={(e) =>
-            this.onChangeOption(i, e.target.name, e.target.value)
-          }
-          required
-        />,
-
-        <input
-          placeholder="Option D"
-          name={`D`}
-          onChange={(e) =>
-            this.onChangeOption(i, e.target.name, e.target.value)
-          }
-          required
-        />,
-        <br />,
-
-        <select
-          name={`ans`}
-          onChange={(e) => this.onChange(i, e.target.name, e.target.value)}
-        >
-          <option value="A">A</option>
-          <option value="B">B</option>
-          <option value="C">C</option>
-          <option value="D">D</option>
-        </select>,
-        <br />,
-        <input
-          placeholder="Marks"
-          type="number"
-          name={`marks`}
-          onChange={(e) => this.onChange(i, e.target.name, e.target.value)}
-          required
-        />,
-        <br />
+        <Card className="input-value">
+          <h5>Question</h5>
+          <input
+            className="inputs"
+            placeholder="Question name"
+            name={`question`}
+            onChange={(e) => this.onChange(i, e.target.name, e.target.value)}
+            required
+          />
+          <br />
+          <h5>Option A</h5>
+          <input
+            className="inputs"
+            placeholder="Option A"
+            name={`A`}
+            onChange={(e) =>
+              this.onChangeOption(i, e.target.name, e.target.value)
+            }
+            required
+          />
+          <h5>Option B</h5>
+          <input
+            className="inputs"
+            placeholder="Option B"
+            name={`B`}
+            onChange={(e) =>
+              this.onChangeOption(i, e.target.name, e.target.value)
+            }
+            required
+          />
+          <h5>Option C</h5>
+          <input
+            className="inputs"
+            placeholder="Option C"
+            name={`C`}
+            onChange={(e) =>
+              this.onChangeOption(i, e.target.name, e.target.value)
+            }
+            required
+          />
+          <h5>Option D</h5>
+          <input
+            className="inputs"
+            placeholder="Option D"
+            name={`D`}
+            onChange={(e) =>
+              this.onChangeOption(i, e.target.name, e.target.value)
+            }
+            required
+          />
+          <br />
+          <h5>Answer</h5>
+          <select
+            className="inputs"
+            name={`ans`}
+            onChange={(e) => this.onChange(i, e.target.name, e.target.value)}
+          >
+            <option value="" selected disabled hidden>
+              Choose here
+            </option>
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+            <option value="D">D</option>
+          </select>
+          <br />
+          <h5>Marks</h5>
+          <input
+            className="inputs"
+            placeholder="Marks"
+            type="number"
+            name={`marks`}
+            onChange={(e) => this.onChange(i, e.target.name, e.target.value)}
+            required
+          />
+          <br />
+        </Card>
       );
     }
     return (
       <div>
-        <Jumbotron>
+        <AdminNav />
+        <Jumbotron className="jumbo-exam">
           <h1 className="display-3">Create Exam</h1>
         </Jumbotron>
-        <Form role="form" onSubmit={this.handleSubmit}>
-          <h3>Name</h3>
-          <Input
-            type="name"
-            value={this.state.name}
-            onChange={(event) =>
-              this.setState({
-                name: event.target.value,
-              })
-            }
-            required
-          />
-          <h3>Subject</h3>
-          <Input
-            type="code"
-            value={this.state.subject}
-            onChange={(event) =>
-              this.setState({
-                subject: event.target.value,
-              })
-            }
-            required
-          />
-          <h3>Enter no of question</h3>
-          <input
-            onChange={(e) =>
-              this.setState({ totalNumQuestion: e.target.value })
-            }
-            value={this.state.totalNumQuestion}
-            placeholder="Enter Number of Questions"
-          />
-          <button onClick={this.add}>Add</button>
-          <br />
+        <Container>
+          <Form role="form" onSubmit={this.handleSubmit}>
+            <h5>Name</h5>
+            <Input
+              className="input-exam"
+              type="name"
+              value={this.state.name}
+              onChange={(event) =>
+                this.setState({
+                  name: event.target.value,
+                })
+              }
+              required
+            />
+            <h5>Subject</h5>
+            <Input
+              className="input-exam"
+              type="code"
+              value={this.state.subject}
+              onChange={(event) =>
+                this.setState({
+                  subject: event.target.value,
+                })
+              }
+              required
+            />
+            <h5>Enter no of question</h5>
+            <input
+              className="input-button"
+              type="number"
+              onChange={(e) =>
+                this.setState({ totalNumQuestion: e.target.value })
+              }
+              value={this.state.totalNumQuestion}
+            />
 
-          {inputs}
-          <Button type="submit" value="Submit" color="primary">
-            Submit
-          </Button>
-        </Form>
-        <br />
+            <AddCircleOutlineOutlinedIcon
+              className="add-btn"
+              style={{ fontSize: 30 }}
+              onClick={this.add}
+            />
+            <br />
+
+            {inputs}
+            <Button type="submit" value="Submit" color="primary">
+              Submit
+            </Button>
+          </Form>
+          <br />
+        </Container>
       </div>
     );
   }

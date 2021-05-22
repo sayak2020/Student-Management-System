@@ -1,11 +1,16 @@
+.search-form {
+  width: 60%;
+  margin-left: 20rem;
+}
 .upload-section {
   display: flex;
-  height: 200px;
-  margin-bottom: 10px;
+  height: 100px;
+  margin-bottom: 20px;
+  margin-left: 7.9rem;
 }
 
 .drop-zone {
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   padding: 40px 10px;
   height: inherit;
   border: 2px dashed #e9ebeb;
@@ -14,6 +19,7 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  width: 40rem;
 }
 
 .image-preview {
@@ -33,4 +39,12 @@
   justify-content: center;
   align-items: center;
   margin-left: 5%;
+}
+
+.notes-value {
+  margin-right: 30rem;
+}
+.notes-input {
+  width: 70% !important;
+  margin-left: 8rem;
 }

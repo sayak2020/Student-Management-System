@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { withRouter } from "react-router-dom";
+import { Jumbotron } from "reactstrap";
 import StudentCard from "../StudentProfiles/StudentCard";
 
 class FilterEmail extends React.Component {
@@ -40,7 +41,11 @@ class FilterEmail extends React.Component {
       );
     });
     if (this.state.message) {
-      return this.state.message;
+      return (
+        <Jumbotron classname="top-bar">
+          <h1 className="display-3  "> {this.state.message}</h1>
+        </Jumbotron>
+      );
     } else {
       return <div>{users}</div>;
     }

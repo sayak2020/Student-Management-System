@@ -3,12 +3,13 @@ import axios from "axios";
 import UserTestCard from "./UserTestCard";
 import { Jumbotron, Button } from "reactstrap";
 import { withRouter } from "react-router-dom";
+import Cookies from "universal-cookie";
+import Navigation from "../../Navigation";
+import "./UserTestCard.css";
+import FiberManualRecordIcon from "@material-ui/icons/FiberManualRecord";
+import { green } from "@material-ui/core/colors";
 
 class UserTest extends Component {
-  //   state = {
-  //     questions: [],
-  //     details: [],
-  //   };
   constructor() {
     super();
     this.state = {
@@ -28,59 +29,34 @@ class UserTest extends Component {
   }
 
   onValueChange(e, id) {
-    // let answers = this.state.answers;
-    // answers.push(e.target.value);
-    // this.setState({ answers });
-    // console.log("selected option", e.target.value);
-    // console.log("id", id);
     this.setState({ selectedOption: e.target.value, id: id });
     console.log(this.state.answers);
 
     this.state.answers[id] = e.target.value;
-    // this.setState({ answers: answers });
+
     console.log(this.state.answers);
   }
 
   onSubmit = () => {
     console.log(this.state.answers);
+    const id = this.props.match.params.id;
+
+    const cookies = new Cookies();
 
     axios
-      .post("http://localhost:9000/test_respons/1", {
-        answers: this.state.answers,
-        email: "sayak",
-      })
+      .post(
+        `http://localhost:9000/test_respons/${cookies.get(
+          "userid"
+        )}/${cookies.get("username")}/${id}`,
+        {
+          answers: this.state.answers,
+        }
+      )
       .then((response) => {
         console.log(response);
-
-        // if (!response.data.errmsg) {
-        //   console.log("successful signup");
-        //   this.setState({
-        //     //redirect to login page
-        //     redirectTo: "/login",
-        //   });
-        // } else {
-        //   console.log("username already taken");
-        // }
       });
+    alert("Submitted Successfully!");
   };
-  // postDataHandler = () => {
-  //   const post = {
-  //     from: this.state.from,
-  //     to: this.state.to,
-  //     cause: this.state.cause,
-  //   };
-
-  //   this.setState({ message: "Application for leave given" });
-
-  //   const cookies = new Cookies();
-
-  //   axios.post(
-  //     `http://localhost:9000/leave/${cookies.get("userid")}/${cookies.get(
-  //       "username"
-  //     )}`,
-  //     post
-  //   );
-  // };
 
   componentDidMount() {
     const id = this.props.match.params.id;
@@ -92,20 +68,6 @@ class UserTest extends Component {
     });
   }
   render() {
-    // for (let i = 0; i < this.state.questions.length; i++) {
-    //   return (
-    //     <UserTestCard
-    //       questions={this.state.questions[i].question}
-    //       optionA={this.state.questions[i].options[0].A}
-    //       optionB={this.state.questions[i].options[0].B}
-    //       optionC={this.state.questions[i].options[0].C}
-    //       optionD={this.state.questions[i].options[0].D}
-    //       marks={this.state.questions[i].marks}
-    //       id={this.state.questions[i]._id}
-    //       onChange={(e) => this.onValueChange(e, i)}
-    //     />
-    //   );
-    // }
     console.log(this.state.selectedOption);
 
     const questions = this.state.questions.map((question, i) => {
@@ -123,41 +85,27 @@ class UserTest extends Component {
         />
       );
     });
-    // const questions = this.state.questions.map((question) => {
-    //   console.log(this.state.answers);
-    //   return (
-    //     <UserTestCard
-    //       questions={question.question}
-    //       optionA={question.options[0].A}
-    //       optionB={question.options[0].B}
-    //       optionC={question.options[0].C}
-    //       optionD={question.options[0].D}
-    //       marks={question.marks}
-    //       onChange={(e) => this.onValueChange(e)}
-    //       selected={this.state.selectedOption}
-    //     />
-    //   );
-    // });
+
     return (
       <div>
+        <Navigation />
         <Jumbotron className="test-details">
-          <h4 className="display-3 test-name">
-            Name : {this.state.details.name}
+          <h4 className="display-3 test-name">{this.state.details.name}</h4>
+          <h4 className="test-name">
+            Status :
+            <FiberManualRecordIcon
+              className="live-icon"
+              style={{ color: green[600] }}
+            />{" "}
+            {this.state.details.status}
           </h4>
-          <h4 className="test-status">Status : {this.state.details.status}</h4>
-          <h4 className="test-status">
-            Subject : {this.state.details.subject}
-          </h4>
-          <p className="test-id">ID : {this.state.details._id}</p>
+          <h4 className="test-name">Subject : {this.state.details.subject}</h4>
+          {/* <p className="test-id">ID : {this.state.details._id}</p> */}
         </Jumbotron>
-        {/* <form onSubmit={this.formSubmit}>
-          {questions}
-          <Button>Submit</Button>
-        </form> */}
 
         <form onSubmit={this.onSubmit}>
           {questions}
-          <Button type="submit" value="submit">
+          <Button className="submit-btn-test" type="submit" value="submit">
             Submit
           </Button>
         </form>

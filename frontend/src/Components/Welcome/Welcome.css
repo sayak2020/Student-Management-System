@@ -1,0 +1,9 @@
+.welcome {
+  padding: 20px 32px !important;
+  align-items: left !important;
+  margin-bottom: 0 !important;
+}
+
+.welcome-text {
+  width: 450px;
+}

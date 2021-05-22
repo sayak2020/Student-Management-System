@@ -5,7 +5,7 @@ import "./StudentCard.css";
 
 const StudentCard = (props) => {
   return (
-    <Row>
+    <Row className="row-all">
       <Col sm="4" className="profile-card">
         <CardHeader className="text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4">
           <div className="d-flex justify-content-between">
@@ -16,6 +16,15 @@ const StudentCard = (props) => {
             >
               <Button className="float-right" color="default" size="sm">
                 View Attendance
+              </Button>
+            </Link>
+            <Link
+              to={{
+                pathname: `../filter_result/${props.email}`,
+              }}
+            >
+              <Button className="float-right" color="default" size="sm">
+                View Result
               </Button>
             </Link>
             <Link

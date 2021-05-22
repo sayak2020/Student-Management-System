@@ -2,6 +2,7 @@ import React, { useState, useEffect, useMemo } from "react";
 import axios from "axios";
 import { Jumbotron } from "reactstrap";
 import "./AdminLeave.css";
+import AdminNav from "../AdminLanding/AdminNav";
 
 function AdminLeavePending() {
   const [allData, setAllData] = useState([]);
@@ -26,7 +27,15 @@ function AdminLeavePending() {
     if (message.localeCompare("Pending Leave Applications")) {
       return "";
     } else {
-      let headerElement = ["id", "email", "from", "to", "cause", "status"];
+      let headerElement = [
+        "id",
+        "email",
+        "from",
+        "to",
+        "cause",
+        "status",
+        "select",
+      ];
 
       return headerElement.map((key, index) => {
         return <th key={index}>{key.toUpperCase()}</th>;
@@ -70,6 +79,7 @@ function AdminLeavePending() {
 
   return (
     <>
+      <AdminNav />
       <Jumbotron className="heading-leave">
         <h1 className="display-3 ">{message}</h1>
       </Jumbotron>

@@ -28,12 +28,13 @@ button.bg--update:focus {
 
 .text-right-update {
   text-align: right !important;
+  left: 150px;
 }
 .heading-small-update {
   padding-top: 20px;
   padding-bottom: 0.25rem;
   padding-left: 240px;
-  font-size: 0.75rem;
+  font-size: 1rem;
   text-transform: uppercase;
   letter-spacing: 0.04em;
 }

@@ -73,8 +73,8 @@ app.use(express.static(path.join(__dirname, "..", "build")));
 const file_upload = require("./routes/file");
 app.use("/file_upload", file_upload);
 
-const authenticate = require("./routes/authenticate");
-app.use("/authenticate", authenticate);
+// const authenticate = require("./routes/authenticate");
+// app.use("/authenticate", authenticate);
 // const fileRoute = require("./routes/file");
 
 // app.use(fileRoute);

@@ -24,7 +24,7 @@ const AdminNav = (props) => {
       <Navbar color="light" light expand="md">
         <Container>
           {" "}
-          <NavbarBrand href="/">ADMIN</NavbarBrand>
+          <NavbarBrand href="/adminlanding">ADMIN</NavbarBrand>
         </Container>
 
         <NavbarToggler onClick={toggle} />
@@ -36,16 +36,22 @@ const AdminNav = (props) => {
               </DropdownToggle>
               <DropdownMenu right>
                 <DropdownItem href="/studentprofile">
-                  View Student Profiles
+                  Student Profiles
                 </DropdownItem>
 
                 <DropdownItem href="/pendingleave">
-                  View Pending Leave Application
+                  Pending Leave Application
                 </DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown>
             <Button className="btn-admin" href="/admin_register">
               Create New Admin
+            </Button>
+            <Button
+              className="btn-admin"
+              href="http://localhost:9000/admin_login/a/a_logout"
+            >
+              Logout
             </Button>
           </Nav>
         </Collapse>

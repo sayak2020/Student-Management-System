@@ -41,6 +41,7 @@ class Leave extends Component {
       )}`,
       post
     );
+    alert("Application for leave given");
   };
   render() {
     return (
@@ -58,9 +59,9 @@ class Leave extends Component {
           <Form onSubmit={this.postDataHandler}>
             <CardBody className="pt-0 pt-md-4">
               <div className="text-center">
-                {this.state.message && (
+                {/* {this.state.message && (
                   <p className="message"> {this.state.message} </p>
-                )}
+                )} */}
                 <FormGroup>
                   <p>From</p>
                   <Input

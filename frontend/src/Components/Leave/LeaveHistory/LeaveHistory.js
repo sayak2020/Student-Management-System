@@ -1,53 +1,76 @@
 import React, { useState, useEffect, useMemo } from "react";
 import Cookies from "universal-cookie";
 import axios from "axios";
-import { Card } from "reactstrap";
-import LeaveTable from "./LeaveTable";
+import { Jumbotron } from "reactstrap";
+
 import "./LeaveHistory.css";
 import Navigation from "../../Navigation";
 
 function LeaveHistory() {
-  const [data, setData] = useState([]);
+  const [allData, setAllData] = useState([]);
+  const [message, setMessage] = useState("Approved Leave Applications");
 
-  // Using useEffect to call the API once mounted and set the data
   useEffect(() => {
     (async () => {
       const cookies = new Cookies();
       const result = await axios(
         `http://localhost:9000/leave/${cookies.get("userid")}`
       );
-      setData(result.data.leaveApplications);
-      console.log(result.data);
+      if (result.data.leaveApplications.length == 0) {
+        setMessage("No Approved Leave Applications");
+      } else {
+        setAllData(result.data.leaveApplications);
+      }
     })();
   }, []);
 
-  const columns = useMemo(() => [
-    {
-      Header: "From",
-      accessor: "from",
-    },
-    {
-      Header: "To",
-      accessor: "to",
-    },
+  const renderHeader = () => {
+    if (message.localeCompare("Approved Leave Applications")) {
+      return "";
+    } else {
+      let headerElement = ["id", "from", "to", "cause", "status"];
 
-    {
-      Header: "Cause",
-      accessor: "cause",
-    },
-    {
-      Header: "Status",
-      accessor: "status",
-    },
-  ]);
+      return headerElement.map((key, index) => {
+        return (
+          <th className="check-attd" key={index}>
+            {key.toUpperCase()}
+          </th>
+        );
+      });
+    }
+  };
+
+  const renderBody = () => {
+    return (
+      allData &&
+      allData.map(({ id, leaveID, from, to, cause, status }) => {
+        return (
+          <tr key={id}>
+            <td>{leaveID}</td>
+
+            <td>{from}</td>
+            <td>{to}</td>
+            <td>{cause}</td>
+            <td>{status}</td>
+          </tr>
+        );
+      })
+    );
+  };
 
   return (
-    <div>
+    <>
       <Navigation />
-      <Card className="card-profile shadow tableleave">
-        <LeaveTable data={data} columns={columns} />
-      </Card>
-    </div>
+      <Jumbotron className="heading-leave">
+        <h1 className="display-3 ">{message}</h1>
+      </Jumbotron>
+      <table id="approve-exam">
+        <thead>
+          <tr>{renderHeader()}</tr>
+        </thead>
+        <tbody>{renderBody()}</tbody>
+      </table>
+    </>
   );
 }
 

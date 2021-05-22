@@ -38,6 +38,7 @@ class Attendance extends Component {
       )}`,
       post
     );
+    alert("Attendance given");
   };
 
   render() {
@@ -56,14 +57,15 @@ class Attendance extends Component {
             </CardHeader>
             <CardBody className="pt-0 pt-md-4">
               <div className="text-center">
-                {this.state.message && (
+                {/* {this.state.message && (
                   <p className="message"> {this.state.message} </p>
-                )}
+                )} */}
                 <FormGroup>
                   <Input
                     className="form-control-alternative"
                     id="input-subject"
                     type="text"
+                    placeholder="Write Subject Name Here"
                     value={this.state.subject}
                     onChange={(event) =>
                       this.setState({ subject: event.target.value })

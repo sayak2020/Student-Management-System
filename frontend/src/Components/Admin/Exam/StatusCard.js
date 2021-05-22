@@ -1,12 +1,13 @@
 import React from "react";
-import { Card, Button, CardHeader, CardText, Row, Col } from "reactstrap";
+import { Card, Button, Row, Col } from "reactstrap";
 import { Link } from "react-router-dom";
+import "./StatusCard.css";
 
 function StatusCard(props) {
   return (
-    <Row>
-      <Col sm="4" className="profile-card">
-        <Card body>
+    <Row className="row-all">
+      <Col sm="4" className="profile-card ">
+        <Card body className="status-card">
           <div className="text-center">
             <h3>Name: {props.name}</h3>
             <div className="h5 mt-4">
@@ -14,6 +15,7 @@ function StatusCard(props) {
               Status : {props.status}
             </div>
           </div>
+
           <Link
             to={{
               pathname: `/test/${props.id}`,

@@ -18,7 +18,7 @@ function Navigation() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
             <Nav.Link href="/attendance">Attendance</Nav.Link>
-            <Nav.Link href="/leave">Leave</Nav.Link>
+            <Nav.Link href="/leave">Apply for Leave</Nav.Link>
 
             <NavDropdown title="Settings" id="basic-nav-dropdown">
               <NavDropdown.Item href="/userprofile">

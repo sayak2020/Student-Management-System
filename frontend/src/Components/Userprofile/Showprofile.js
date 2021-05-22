@@ -5,14 +5,12 @@ import {
   CardHeader,
   CardBody,
   Container,
-  CardFooter,
-  CardText,
   FormGroup,
   Form,
-  Input,
   Row,
   Col,
 } from "reactstrap";
+import "./Userprofile.css";
 
 const Showprofile = (props) => (
   <div>
@@ -36,17 +34,22 @@ const Showprofile = (props) => (
                     <FormGroup>
                       <label
                         className="form-control-label"
-                        htmlFor="input-username"
+                        htmlFor="input-stream"
                       >
                         Username
                       </label>
-                      <Input value={props.name} />
+                      : {props.name}
                     </FormGroup>
                   </Col>
                   <Col lg="6">
                     <FormGroup>
-                      <label className="form-control-label">Phone Number</label>
-                      <Input value={props.phone} />
+                      <label
+                        className="form-control-label"
+                        htmlFor="input-stream"
+                      >
+                        Phone Number
+                      </label>
+                      : {props.phone}
                     </FormGroup>
                   </Col>
                 </Row>
@@ -64,7 +67,7 @@ const Showprofile = (props) => (
                       >
                         Stream
                       </label>
-                      :{props.stream}
+                      : {props.stream}
                     </FormGroup>
                   </Col>
                   <Col lg="4">
@@ -75,7 +78,7 @@ const Showprofile = (props) => (
                       >
                         Section
                       </label>
-                      :{props.section}
+                      : {props.section}
                     </FormGroup>
                   </Col>
                   <Col lg="4">
@@ -86,7 +89,7 @@ const Showprofile = (props) => (
                       >
                         Year
                       </label>
-                      :{props.year}
+                      : {props.year}
                     </FormGroup>
                   </Col>
                 </Row>
@@ -99,7 +102,7 @@ const Showprofile = (props) => (
                       >
                         City
                       </label>
-                      :{props.city}
+                      : {props.city}
                     </FormGroup>
                   </Col>
                   <Col lg="4">
@@ -110,7 +113,7 @@ const Showprofile = (props) => (
                       >
                         Street
                       </label>
-                      :{props.street}
+                      : {props.street}
                     </FormGroup>
                   </Col>
                   <Col lg="4">
@@ -121,14 +124,14 @@ const Showprofile = (props) => (
                       >
                         Pin code
                       </label>
-                      :{props.pin}
+                      : {props.pin}
                     </FormGroup>
                   </Col>
                 </Row>
 
                 <hr className="my-4" />
               </div>
-              <Button href="/updateprofile">edit</Button>
+              <Button href="/updateprofile">Edit</Button>
             </Form>
           </CardBody>
         </Card>

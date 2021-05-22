@@ -1,0 +1,34 @@
+.jumbo-exam {
+  padding: 10px 32px !important;
+}
+
+h5 {
+  font-family: "Jost", sans-serif;
+  margin-top: 8px !important;
+}
+
+.input-exam {
+  width: 500px !important;
+  margin: 10px 0 20px 300px;
+}
+
+.input-button {
+  width: 50px;
+  margin-top: 8px;
+  margin-right: 10px;
+  margin-left: 40px;
+  margin-bottom: 20px;
+}
+
+.add-btn {
+  margin-bottom: 4px;
+}
+
+.input-value {
+  margin-bottom: 20px;
+}
+
+.inputs {
+  width: 500px;
+  margin: 0px 0 8px 300px;
+}

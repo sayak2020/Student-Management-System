@@ -1,17 +1,23 @@
 import React, { Component } from "react";
-import { Jumbotron, Button } from "reactstrap";
+import { Jumbotron } from "reactstrap";
 import StatusCard from "./StatusCard";
 import axios from "axios";
+import AdminNav from "../AdminLanding/AdminNav";
 
 class EndedExam extends Component {
   state = {
     details: [],
+    message: "Ended Exam",
   };
 
   componentDidMount() {
     axios.get("http://localhost:9000/test/test/ended").then((response) => {
-      console.log(response.data);
-      this.setState({ details: response.data.testDetails });
+      console.log(response.data.testDetails.length);
+      if (response.data.testDetails.length == 0) {
+        this.setState({ message: "No Ended Exam" });
+      } else {
+        this.setState({ details: response.data.testDetails });
+      }
     });
   }
   render() {
@@ -26,8 +32,9 @@ class EndedExam extends Component {
     });
     return (
       <div>
+        <AdminNav />
         <Jumbotron>
-          <h1 className="display-3">Ended Exam </h1>
+          <h1 className="display-3">{this.state.message} </h1>
         </Jumbotron>
         {details}
       </div>

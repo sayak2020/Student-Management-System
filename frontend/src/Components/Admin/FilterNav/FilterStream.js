@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import { Jumbotron } from "reactstrap";
 import { withRouter } from "react-router-dom";
 import StudentCard from "../StudentProfiles/StudentCard";
 
@@ -40,7 +41,11 @@ class FilterStream extends React.Component {
       );
     });
     if (this.state.message) {
-      return this.state.message;
+      return (
+        <Jumbotron classname="top-bar">
+          <h1 className="display-3  "> {this.state.message}</h1>
+        </Jumbotron>
+      );
     } else {
       return <div>{users}</div>;
     }

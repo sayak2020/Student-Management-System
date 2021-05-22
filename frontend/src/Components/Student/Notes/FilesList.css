@@ -1,12 +1,14 @@
 .files-container {
-  width: 98%;
+  width: 100%;
   overflow-x: auto;
 }
 
 #files-table {
-  width: 100%;
+  width: 75%;
   border: 1px solid #ccc;
   border-collapse: collapse;
+  margin-left: 12rem;
+  margin-bottom: 20px;
 }
 
 #files-table tr,

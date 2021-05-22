@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Jost:wght@500&display=swap");
 #header-front {
   transition: all 0.5s;
   z-index: 997;
@@ -9,7 +10,7 @@
   background: rgba(40, 58, 90, 0.9);
 }
 
-#header-front .logo {
+/* #header-front .logo {
   font-size: 30px;
   margin: 0;
   padding: 0;
@@ -18,27 +19,29 @@
   letter-spacing: 2px;
   text-transform: uppercase;
   color: #5b6d5b;
-}
-
+} */
+/* 
 #header-front .logo img {
   max-height: 40px;
-}
+} */
 
 .get-started-btn {
-  margin-left: 25px;
-  color: #fff !important;
-  border-radius: 50px !important;
-  padding: 6px 25px 7px 25px;
-  white-space: nowrap;
-  transition: 0.3s;
-  font-size: 14px;
+  font-family: "Jost", sans-serif;
+  align-items: center;
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 1px;
   display: inline-block;
-  border: 2px solid #47b2e4;
-  background: #e2bcb7 !important;
-  font-weight: 600 !important;
+  padding: 10px 0 11px 0px;
+  border-radius: 50px !important;
+  transition: 0.5s;
+  color: #fff;
+  margin-top: 20px;
+  background: #383e56;
+  margin-left: 20px;
 }
 .get-started-btn:hover {
-  background: #ca8a8b !important;
+  background: #0283ce !important;
   color: #fff;
 }
 @media (max-width: 768px) {
@@ -51,25 +54,33 @@
 #hero {
   width: 100%;
   height: 100%;
-  background: #d6e7d8;
-  padding-bottom: 130px;
+  background: rgb(190, 217, 231);
+  padding-bottom: 133px;
   padding-top: 90px;
+  background-image: url(../../img/icons/common/resul-mentes-DbwYNr8RPbg-unsplash.jpg) !important;
 }
 
-#hero .animate {
-  animation: up-down 2s ease-in-out infinite alternate-reverse both;
+#hero .quote {
+  width: 300px;
+}
+
+#hero .img-animate {
+  animation: up-down 2s ease-in-out infinite alternate-reverse both !important;
 }
 
 #hero .container {
-  padding-top: 62px;
+  padding-top: 60px;
 }
 
 #hero h1 {
   margin: 0 0 10px 0;
-  font-size: 48px;
-  font-weight: 700;
+  font-size: 100px;
+  font-weight: 500;
   line-height: 56px;
-  color: #5b6d5b;
+  color: black;
+  line-height: 1.2em;
+  letter-spacing: 2px;
+  font-family: "Caveat", cursive;
 }
 
 #hero h2 {
@@ -78,22 +89,22 @@
   font-size: 24px;
 }
 
-#hero .btn-get-started {
+.btn-get-started {
   font-family: "Jost", sans-serif;
   align-items: center;
   font-weight: 500;
   font-size: 16px;
   letter-spacing: 1px;
   display: inline-block;
-  padding: 10px 28px 11px 28px;
-  border-radius: 50px;
+  padding: 10px 0 11px 0px;
+  border-radius: 50px !important;
   transition: 0.5s;
   color: #fff;
   margin-top: 20px;
   background: #383e56;
 }
 .btn-get-started:hover {
-  background: #ca8a8b !important;
+  background: #0283ce !important;
   color: #fff;
 }
 
@@ -102,5 +113,5 @@
 }
 
 .login-button {
-  padding-left: 160px;
+  padding-left: 60rem;
 }

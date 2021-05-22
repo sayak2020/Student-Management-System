@@ -1,11 +1,12 @@
 import React from "react";
-import { Card, Button, CardHeader, CardText, Row, Col } from "reactstrap";
+import { Card, Row, Col } from "reactstrap";
+import "./ResultCard.css";
 
 function ResultCard(props) {
   return (
-    <Row>
+    <Row className="row-all result-row">
       <Col sm="4" className="profile-card">
-        <Card body>
+        <Card body className="result-crd">
           <div className="text-center">
             <h3>Name : {props.name}</h3>
             <div className="h5 mt-4">

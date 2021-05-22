@@ -1,26 +1,8 @@
-/*!
-
-=========================================================
-* Argon Dashboard React - v1.2.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/argon-dashboard-react
-* Copyright 2021 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://github.com/creativetimofficial/argon-dashboard-react/blob/master/LICENSE.md)
-
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-*/
 import React, { Component } from "react";
 import axios from "axios";
 import "./UpdateProfile.css";
-import Login from "../Login/Login";
 import Cookies from "universal-cookie";
-// reactstrap components
+
 import {
   Button,
   Card,
@@ -34,8 +16,6 @@ import {
   Col,
 } from "reactstrap";
 import Navigation from "../Navigation";
-// core components
-//import UserHeader from "../Headers/UserHeader";
 
 class Profile extends Component {
   state = {
@@ -105,8 +85,6 @@ class Profile extends Component {
       pin: this.state.pin,
     };
 
-    this.setState({ message: "Updated Successfully" });
-
     const cookies = new Cookies();
 
     axios.patch(
@@ -115,6 +93,8 @@ class Profile extends Component {
       )}/${cookies.get("username")}`,
       patch
     );
+    this.setState({ message: "Updated Successfully" });
+    alert("Updated Successfully");
   };
 
   render() {
@@ -135,10 +115,13 @@ class Profile extends Component {
                 </Row>
               </CardHeader>
               <CardBody>
-                {this.state.message && (
+                {/* {this.state.message && (
                   <p className="message"> {this.state.message} </p>
-                )}
+                )} */}
                 <Form onSubmit={this.postDataHandler}>
+                  {/* {this.state.message && (
+                    <p className="message"> {this.state.message} </p>
+                  )} */}
                   <div className="pl-lg-4">
                     <Row>
                       <Col lg="6">

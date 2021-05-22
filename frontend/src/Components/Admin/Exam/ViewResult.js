@@ -3,10 +3,13 @@ import { withRouter } from "react-router-dom";
 import axios from "axios";
 import ResultCard from "./ResultCard";
 import ResultNav from "./ResultNav";
+import { Jumbotron } from "reactstrap";
+import "./ViewResult.css";
 
 class ViewResult extends Component {
   state = {
     details: [],
+    message: "",
   };
 
   componentDidMount() {
@@ -15,12 +18,18 @@ class ViewResult extends Component {
       .get(`http://localhost:9000/test_respons/testID/${id}`)
       .then((response) => {
         console.log(response.data.testDetails);
-        this.setState({ details: response.data.testDetails });
+        if (response.data.testDetails.length == 0) {
+          this.setState({ message: "No Results Found" });
+        } else {
+          this.setState({ details: response.data.testDetails });
+          this.setState({
+            message: response.data.testDetails.length + " Results Found",
+          });
+        }
       });
   }
   render() {
     const details = this.state.details.map((detail) => {
-      //   console.log(detail.answer.length);
       return (
         <ResultCard
           name={detail.name}
@@ -30,9 +39,14 @@ class ViewResult extends Component {
         />
       );
     });
+
     return (
       <div>
         <ResultNav />
+        <Jumbotron classname="top-bar">
+          <h1 className="display-3  "> {this.state.message}</h1>
+        </Jumbotron>
+
         {details}
       </div>
     );

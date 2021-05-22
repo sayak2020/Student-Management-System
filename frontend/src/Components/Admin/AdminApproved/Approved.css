@@ -1,0 +1,27 @@
+#approve-exam {
+  border-collapse: collapse;
+
+  margin-left: 25rem;
+}
+.col-table {
+  margin-bottom: 40px !important;
+}
+
+#approve-exam td,
+#approve-exam th {
+  border: 1px solid #ddd;
+  padding: 25px 45px;
+  font-family: "Jost", sans-serif;
+}
+
+#approve-exam tr:hover {
+  background-color: #ddd;
+}
+
+#approve-exam th {
+  padding: 10px;
+  text-align: center;
+  background-color: #e5b29d;
+  color: white;
+  font-family: "Jost", sans-serif;
+}

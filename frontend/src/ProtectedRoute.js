@@ -1,20 +1,29 @@
 import React from "react";
-import { Redirect } from "react-router-dom";
+import { Route, Redirect } from "react-router-dom";
+import Cookies from "universal-cookie";
 
-class ProtectedRoute extends React.Component {
-  render() {
-    const Component = this.props.component;
-    var cookieArr = document.cookie.split(";");
-    var cookiePair = cookieArr[0].split("=");
-    const isAuthenticated = decodeURIComponent(cookiePair[1]);
-    console.log(isAuthenticated);
+const ProtectedRoute = ({ component: Component, ...rest }) => {
+  const cookies = new Cookies();
+  const isAuthenticated = `${cookies.get("userid")}`;
 
-    return isAuthenticated.localeCompare(undefined) ? (
-      <Component />
-    ) : (
-      <Redirect to={{ pathname: "/login" }} />
-    );
-  }
-}
+  return (
+    <Route
+      {...rest}
+      render={(props) => {
+        if (isAuthenticated.localeCompare(undefined)) {
+          return <Component {...props} />;
+        } else {
+          return (
+            <Redirect
+              to={{
+                pathname: "/login",
+              }}
+            />
+          );
+        }
+      }}
+    />
+  );
+};
 
 export default ProtectedRoute;

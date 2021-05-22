@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { Jumbotron } from "reactstrap";
 import { withRouter } from "react-router-dom";
 import ResultCard from "./ResultCard";
 
@@ -16,7 +17,7 @@ class FilterResult extends Component {
       .get(` http://localhost:9000/test_respons/user/${email}`)
       .then((response) => {
         if (response.data.testDetails.length == 0) {
-          this.setState({ message: "No User Found" });
+          this.setState({ message: "No Results Found" });
         } else {
           console.log(response.data.testDetails);
           this.setState({ details: response.data.testDetails });
@@ -37,7 +38,11 @@ class FilterResult extends Component {
       );
     });
     if (this.state.message) {
-      return this.state.message;
+      return (
+        <Jumbotron classname="top-bar">
+          <h1 className="display-3  "> {this.state.message}</h1>
+        </Jumbotron>
+      );
     } else {
       return <div>{details}</div>;
     }

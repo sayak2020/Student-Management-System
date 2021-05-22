@@ -1,13 +1,14 @@
 import React, { useState, useEffect, useMemo } from "react";
 import Cookies from "universal-cookie";
 import axios from "axios";
-import Table from "./Table";
-import { Card } from "reactstrap";
 import "./CheckAttendance.css";
+import { Jumbotron } from "reactstrap";
+
 import Navigation from "../Navigation";
 
 function CheckAttendance() {
-  const [data, setData] = useState([]);
+  const [allData, setAllData] = useState([]);
+  const [message, setMessage] = useState("Attendance");
 
   // Using useEffect to call the API once mounted and set the data
   useEffect(() => {
@@ -16,34 +17,60 @@ function CheckAttendance() {
       const result = await axios(
         `http://localhost:9000/attendence/${cookies.get("userid")}`
       );
-      setData(result.data.attendance);
+      if (result.data.attendance.length == 0) {
+        setMessage("No Attendance Found");
+      } else {
+        setAllData(result.data.attendance);
+      }
+
       console.log(result.data);
     })();
   }, []);
 
-  const columns = useMemo(() => [
-    {
-      Header: "Date",
-      accessor: "date",
-    },
-    {
-      Header: "Time",
-      accessor: "time",
-    },
+  const renderHeader = () => {
+    if (message.localeCompare("Attendance")) {
+      return "";
+    } else {
+      let headerElement = ["date", "time", "subject"];
 
-    {
-      Header: "Subject",
-      accessor: "subject",
-    },
-  ]);
+      return headerElement.map((key, index) => {
+        return (
+          <th className="check-attd" key={index}>
+            {key.toUpperCase()}
+          </th>
+        );
+      });
+    }
+  };
+
+  const renderBody = () => {
+    return (
+      allData &&
+      allData.map(({ id, date, time, subject }) => {
+        return (
+          <tr key={id}>
+            <td>{date}</td>
+            <td>{time}</td>
+            <td>{subject}</td>
+          </tr>
+        );
+      })
+    );
+  };
 
   return (
-    <div>
+    <>
       <Navigation />
-      <Card className="card-profile shadow tableattend">
-        <Table data={data} columns={columns} />
-      </Card>
-    </div>
+      <Jumbotron className="heading-leave">
+        <h1 className="display-3 ">{message}</h1>
+      </Jumbotron>
+      <table id="attendance">
+        <thead>
+          <tr>{renderHeader()}</tr>
+        </thead>
+        <tbody>{renderBody()}</tbody>
+      </table>
+    </>
   );
 }
 

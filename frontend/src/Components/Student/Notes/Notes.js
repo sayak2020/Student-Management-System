@@ -4,7 +4,9 @@ import axios from "axios";
 import { Form, Row, Col, Button } from "react-bootstrap";
 import "./Notes.css";
 import Cookies from "universal-cookie";
-import Header from "./Header";
+
+import { Jumbotron } from "reactstrap";
+import Navigation from "../../Navigation";
 
 // import { API_URL } from "../utils/constants";
 
@@ -85,17 +87,21 @@ const Notes = (props) => {
 
   return (
     <React.Fragment>
-      <Header />
+      <Navigation />
+      <Jumbotron>
+        <h1 className="display-3 ">Add Notes</h1>
+      </Jumbotron>
       <Form className="search-form" onSubmit={handleOnSubmit}>
         {errorMsg && <p className="errorMsg">{errorMsg}</p>}
         <Row>
           <Col>
             <Form.Group controlId="title">
+              <label className="notes-value">Enter Filename</label>
               <Form.Control
+                className="notes-input"
                 type="text"
                 name="title"
                 value={state.title || ""}
-                placeholder="Enter Filename"
                 onChange={handleInputChange}
               />
             </Form.Group>
@@ -104,11 +110,12 @@ const Notes = (props) => {
         <Row>
           <Col>
             <Form.Group controlId="description">
+              <label className="notes-value">Enter Subject Name</label>
               <Form.Control
+                className="notes-input"
                 type="text"
                 name="description"
                 value={state.description || ""}
-                placeholder="Enter Subject Name"
                 onChange={handleInputChange}
               />
             </Form.Group>

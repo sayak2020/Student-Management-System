@@ -1,0 +1,28 @@
+#attendance {
+  border-collapse: collapse;
+
+  margin-left: 35rem;
+  margin-bottom: 20px;
+}
+.col-table {
+  margin-bottom: 40px !important;
+}
+
+#attendance td,
+#attendance th {
+  border: 1px solid #ddd;
+  padding: 20px 35px;
+  font-family: "Jost", sans-serif;
+}
+
+#attendance tr:hover {
+  background-color: #ddd;
+}
+
+#attendance th {
+  padding: 10px;
+  text-align: center;
+  background-color: #e5b29d;
+  color: white;
+  font-family: "Jost", sans-serif;
+}
