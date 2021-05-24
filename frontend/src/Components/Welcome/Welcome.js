@@ -1,5 +1,5 @@
 import React from "react";
-import { Jumbotron, Button } from "reactstrap";
+import { Jumbotron } from "reactstrap";
 import axios from "axios";
 import Cookies from "universal-cookie";
 import Navigation from "../Navigation";

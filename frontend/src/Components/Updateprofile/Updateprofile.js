@@ -115,13 +115,7 @@ class Profile extends Component {
                 </Row>
               </CardHeader>
               <CardBody>
-                {/* {this.state.message && (
-                  <p className="message"> {this.state.message} </p>
-                )} */}
                 <Form onSubmit={this.postDataHandler}>
-                  {/* {this.state.message && (
-                    <p className="message"> {this.state.message} </p>
-                  )} */}
                   <div className="pl-lg-4">
                     <Row>
                       <Col lg="6">

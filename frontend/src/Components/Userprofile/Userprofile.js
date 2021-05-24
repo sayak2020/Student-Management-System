@@ -7,8 +7,6 @@ import Cookies from "universal-cookie";
 import Navigation from "../Navigation";
 import Showprofile from "./Showprofile";
 
-const cookies = new Cookies();
-
 class Userprofile extends Component {
   state = {
     user: [],

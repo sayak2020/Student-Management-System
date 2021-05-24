@@ -37,7 +37,8 @@ class UserTest extends Component {
     console.log(this.state.answers);
   }
 
-  onSubmit = () => {
+  onSubmit = (event) => {
+    event.preventDefault();
     console.log(this.state.answers);
     const id = this.props.match.params.id;
 
@@ -55,7 +56,8 @@ class UserTest extends Component {
       .then((response) => {
         console.log(response);
       });
-    alert("Submitted Successfully!");
+    // alert("Submitted Successfully!");
+    window.location.replace("/welcome");
   };
 
   componentDidMount() {
